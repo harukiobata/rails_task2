@@ -1,29 +1,65 @@
-<h2>Sign up</h2>
+<header>
+    <div class="homepage-header-field">
+      <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
+    </div>
+    <%= link_to "ログイン", new_user_session_path , class: "homepage-to-session-link" %>
+    <%= link_to "新規作成", new_user_registration_path , class: "homepage-to-new-user-create-link" %>
+</header>
+<main>
+  <h2>新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :name do %>
+        お名前<%= content_tag(:span, "*", class: "required-star") %>
+      <% end %><br />
+      <%= f.text_field :name, autofocus:  true %>
+      <% if resource.errors[:name].any? %>
+        <div class="error-message">
+          <%= resource.errors.full_messages_for(:name).join(', ') %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email do %>
+        メールアドレス<%= content_tag(:span, "*", class: "required-star") %>
+      <% end %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <% if resource.errors[:email].any? %>
+        <div class="error-message">
+          <%= resource.errors.full_messages_for(:email).join(', ') %>
+        </div>
+      <% end %>
+    </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <%= f.label :password do %> 
+      パスワード<%= content_tag(:span, "*", class: "required-star") %>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if resource.errors[:password].any? %>
+      <div class="error-message">
+        <%= resource.errors.full_messages_for(:password).join(', ') %>
+      </div>
+    <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation do %>
+      確認用パスワード<%= content_tag(:span, "*", class: "required-star") %>
+    <% end %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <% if resource.errors[:password_confimation].any? %>
+      <div class="error-message">
+        <%= resource.errors.full_messages_for(:password_confimation).join(', ') %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規アカウントを作成" %>
   </div>
 <% end %>
+  <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path %>
 
-<%= render "devise/shared/links" %>
