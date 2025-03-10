@@ -1,26 +1,50 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<header>
+    <div class="homepage-header-field">
+        <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
+        <div class="homepage-login-field">
+            <%= link_to "ログイン", new_user_session_path, class: "homepage-to-session-link" %>
+        </div>
+        <div class="homepage-new-create-field">
+            <%= link_to "新規作成", new_user_registration_path, class: "homepage-to-new-user-create-link" %>
+        </div>
     </div>
-  <% end %>
+</header>
+<main>
+  <div class="login-main-field">
+  <h2 class="login-main-heading">ログイン</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="login-email-field">
+      <%= f.label :email, class: "login-email-heading-field" do %>
+        メールアドレス<%= content_tag(:span, "*", class: "required-star") %>
+      <% end %>
+      <%= f.email_field :email, class: "login-email-write-field", autofocus: true, autocomplete: "email" %>
+      <% if resource.errors[:email].any? %>
+        <div class="error-message">
+          <%= resource.errors.full_messages_for(:email).join(', ') %>
+        </div>
+      <% end %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="login-password-field">
+      <%= f.label :password, class: "login-password-heading-field" do %>
+        パスワード<%= content_tag(:span, "*", class: "required-star") %>
+      <% end %>
+      <%= f.password_field :password,class: "login-password-write-field", autocomplete: "current-password" %>
+      <% if resource.errors[:password].any? %>
+      <div class="error-message">
+        <%= resource.errors.full_messages_for(:password).join(', ') %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="login-submit-field">
+      <%= f.submit "ログイン",class: "login-submit" %>
+    </div>
+    <% end %>
+    <div class="login-to-new-create-link-field">
+      <%= link_to "新規作成", new_user_registration_path , class: "new-user-create-link" %>
+    </div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+</main>
+

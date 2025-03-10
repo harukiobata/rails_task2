@@ -1,19 +1,23 @@
 <header>
     <div class="homepage-header-field">
-      <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
+        <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
+        <div class="homepage-login-field">
+            <%= link_to "ログイン", new_user_session_path, class: "homepage-to-session-link" %>
+        </div>
+        <div class="homepage-new-create-field">
+            <%= link_to "新規作成", new_user_registration_path, class: "homepage-to-new-user-create-link" %>
+        </div>
     </div>
-    <%= link_to "ログイン", new_user_session_path , class: "homepage-to-session-link" %>
-    <%= link_to "新規作成", new_user_registration_path , class: "homepage-to-new-user-create-link" %>
 </header>
 <main>
-  <h2>新規登録</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :name do %>
+  <div class="new-create-main-field">
+    <h2 class="new-create-main-heading">新規登録</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="new-name-create-field">
+      <%= f.label :name,class: "new-name-create-heading-field" do %>
         お名前<%= content_tag(:span, "*", class: "required-star") %>
-      <% end %><br />
-      <%= f.text_field :name, autofocus:  true %>
+      <% end %>
+      <%= f.text_field :name, class: "new-name-create-write-field", autofocus:  true %>
       <% if resource.errors[:name].any? %>
         <div class="error-message">
           <%= resource.errors.full_messages_for(:name).join(', ') %>
@@ -21,11 +25,11 @@
       <% end %>
     </div>
 
-    <div class="field">
-      <%= f.label :email do %>
+    <div class="new-email-create-field">
+      <%= f.label :email, class: "new-email-create-heading-field" do %>
         メールアドレス<%= content_tag(:span, "*", class: "required-star") %>
-      <% end %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <% end %>
+      <%= f.email_field :email, class: "new-email-create-write-field", autofocus: true, autocomplete: "email" %>
       <% if resource.errors[:email].any? %>
         <div class="error-message">
           <%= resource.errors.full_messages_for(:email).join(', ') %>
@@ -33,33 +37,36 @@
       <% end %>
     </div>
 
-  <div class="field">
-    <%= f.label :password do %> 
+    <div class="new-password-create-field">
+    <%= f.label :password, class: "new-password-create-heading-field" do %> 
       パスワード<%= content_tag(:span, "*", class: "required-star") %>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% end %>
+    <%= f.password_field :password,class: "new-password-create-write-field", autocomplete: "new-password" %>
     <% if resource.errors[:password].any? %>
       <div class="error-message">
         <%= resource.errors.full_messages_for(:password).join(', ') %>
       </div>
     <% end %>
-  </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation do %>
+    <div class="new-password_confirmation-field">
+    <%= f.label :password_confirmation,class: "new-password_confirmation-heading-field" do %>
       確認用パスワード<%= content_tag(:span, "*", class: "required-star") %>
-    <% end %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <% end %>
+    <%= f.password_field :password_confirmation, class: "new-password_confirmation-write-field", autocomplete: "new-password" %>
     <% if resource.errors[:password_confimation].any? %>
       <div class="error-message">
         <%= resource.errors.full_messages_for(:password_confimation).join(', ') %>
       </div>
     <% end %>
-  </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "新規アカウントを作成" %>
+    <div class="new-create-submit-field">
+      <%= f.submit "新規アカウントを作成",class: "new-create-submit" %>
+    </div>
+    <% end %>
+    <div class="new-create-to-login-field">
+      <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path,class: "new-create-to-login-link" %>
+    </div>
   </div>
-<% end %>
-  <%= link_to "アカウントをお持ちの方はこちら", new_user_session_path %>
-
+</main>
