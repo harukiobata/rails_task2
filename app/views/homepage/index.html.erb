@@ -1,12 +1,25 @@
 <header>
     <div class="homepage-header-field">
         <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
-        <div class="homepage-login-field">
-            <%= link_to "ログイン", new_user_session_path, class: "homepage-to-session-link" %>
-        </div>
-        <div class="homepage-new-create-field">
-            <%= link_to "新規作成", new_user_registration_path, class: "homepage-to-new-user-create-link" %>
-        </div>
+        <% if user_signed_in? %>
+            <div class="homepage-user-menu" id="homepage-user-menu">
+                <%= image_tag(current_user.icon.attached? ? current_user.icon.variant(resize_to_limit: [30, 30]) : "default_icon.png", class: "user-icon") %>
+                <span class="user-name"><%= current_user.name %></span>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><%= link_to "プロフィール", edit_user_registration_path %></li>
+                        <li><%= link_to "ログアウト", destroy_user_session_path,method: :delete %></li>
+                    </ul>
+                </div>
+            </div>
+        <% else %>
+            <div class="homepage-login-field">
+                <%= link_to "ログイン", new_user_session_path, class: "homepage-to-session-link" %>
+            </div>
+            <div class="homepage-new-create-field">
+                <%= link_to "新規作成", new_user_registration_path, class: "homepage-to-new-user-create-link" %>
+            </div>
+        <% end %>
     </div>
 </header>
 <main>
