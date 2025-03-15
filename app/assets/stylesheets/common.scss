@@ -86,7 +86,7 @@
     position: relative;
     top: -8px;
 }
-  .dropdown-menu {
+.dropdown-menu {
     display: none; /* 初期状態では非表示 */
     position: absolute;
     top: 100%;
@@ -94,31 +94,70 @@
     background-color: #fff;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
+}
   
-  .dropdown-menu ul {
+.dropdown-menu ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
-  }
+}
   
-  .dropdown-menu li {
+.dropdown-menu li {
     padding: 8px 16px;
     font-size: 12px;
     font-weight: bold;
-  }
+}
   
-  .dropdown-menu li a {
+.dropdown-menu li a {
     text-decoration: none;
     color: #333;
     display: block;
-  }
+}
   
-  .dropdown-menu li a:hover {
+.dropdown-menu li a:hover {
     background-color: #ddd;
-  }
+}
   
-  .user-icon {
+.user-icon {
     cursor: pointer; /* アイコンや名前をクリック可能に */
-  }
-  
+}
+.sidebar {
+    text-decoration: none;
+    width: 250px;
+    position: fixed;
+}
+.sidebar-ul {
+    list-style-type: none;
+}
+.sidebar-list-account {
+    height: 60px;
+    border: solid;
+}
+.sidebar-list-profile {
+    height: 60px;
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+}
+.sidebar-list-account-link {
+    text-decoration: none;
+    position: relative;
+    font-size: 18px;
+    left: 40px;
+    top: 15px;
+    color: black;
+}
+.sidebar-list-profile-link {
+    text-decoration: none;
+    position: relative;
+    font-size: 18px;
+    left: 30px;
+    top: 15px;
+    color: black;
+}
+.sidebar-list-profile-link.active {
+    color: orange;
+}
+.sidebar-list-account-link.active {
+    color: orange;
+}

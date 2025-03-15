@@ -1,0 +1,121 @@
+//acountページのscss
+body {
+    margin: 0px;
+}
+.account-main-header {
+    position: relative;
+    left: 40px;
+}
+.account-main-viewing-content {
+    position: relative;
+    left: 300px;
+    top: 10px;
+    max-width: 60%;
+    height: 300px;
+}
+.account-main-viewing-heading {
+    font-size: 25px;
+    border-bottom: solid;
+}
+.account-main-email-field {
+    height: 40px;
+    font-size: 18px;
+}
+.account-main-emailadless {
+    font-weight: bold;
+}
+.account-main-user-emailadless {
+    position: relative;
+    left: 80px;
+}
+.account-main-password-field {
+    height: 40px;
+    font-size: 18px;
+}
+.account-main-password {
+    font-weight: bold;
+}
+.account-main-user-password {
+    position: relative;
+    left: 115px;
+}
+.account-to-edit-account-field {
+    height: 40px;
+    display: inline-block;
+    width: 150px;
+    border: blue 2px solid;
+    border-radius: 20px;
+    position: absolute;
+    right: 0px;
+}
+.account-to-edit-account-link {
+    text-decoration: none;
+    color: blue;
+    position: relative;
+    left: 10px;
+    top: 8px;
+    display: inline-block;
+}
+//profileページのscss
+.profile-main-viewing-content {
+    position: relative;
+    left: 300px;
+    top: 10px;
+    max-width: 60%;
+    height: 450px;
+}
+.profile-main-viewing-heading {
+    font-size: 25px;
+    border-bottom: solid;
+}
+.profile-main-icon-field {
+    font-size: 18px;
+}
+.profile-main-icon {
+    font-weight: bold;
+    position: relative;
+    top: -30px;
+}
+.profile-icon {
+    position: relative;
+    left: 100px;
+}
+.profile-main-name-field {
+    height: 40px;
+    font-size: 18px;
+}
+.profile-main-name {
+    font-weight: bold;
+}
+.profile-main-user-name {
+    position: relative;
+    left: 170px;
+}
+.profile-main-introduction-field {
+    height: 40px;
+    font-size: 18px;
+}
+.profile-main-introduction {
+    font-weight: bold;
+}
+.profile-main-user-introduction {
+    position: relative;
+    left: 135px;
+}
+.profile-to-edit-profile-field {
+    height: 40px;
+    display: inline-block;
+    width: 150px;
+    border: blue 2px solid;
+    border-radius: 20px;
+    position: absolute;
+    right: 0px;
+}
+.profile-to-edit-profile-link {
+    text-decoration: none;
+    color: blue;
+    position: relative;
+    display: inline-block;
+    left: 10px;
+    top: 8px;
+}

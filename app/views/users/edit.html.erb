@@ -1,0 +1,43 @@
+<header>
+    <div class="homepage-header-field">
+        <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
+        <div class="homepage-user-menu" id="homepage-user-menu">
+            <%= image_tag(current_user.icon.attached? ? current_user.icon.variant(resize_to_limit: [30, 30]) : "default_icon.png", class: "user-icon") %>
+            <span class="user-name"><%= current_user.name %></span>
+            <div class="dropdown-menu">
+                <ul>
+                    <li><%= link_to "アカウント設定", account_user_path %></li>
+                    <li><%= link_to "ログアウト", destroy_user_session_path,method: :delete %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+<%= render 'shared/sidebar' %>
+
+<div class="main-content">
+  <h1>プロフィール編集</h1>
+  
+  <%= form_for(@user, url: update_profile_user_path, html: { enctype: 'multipart/form-data' }) do |f| %>
+    <div>
+      <%= f.label :name, '名前' %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :introduction, '自己紹介' %>
+      <%= f.text_area :introduction %>
+    </div>
+
+    <div>
+      <%= f.label :icon, 'アイコン画像' %>
+      <%= f.file_field :icon %>
+    </div>
+
+    <div>
+      <%= f.submit '更新する' %>
+    </div>
+  <% end %>
+</div>
+</main>
