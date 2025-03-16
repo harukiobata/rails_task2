@@ -1,13 +1,5 @@
 <header>
-    <div class="homepage-header-field">
-        <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
-        <div class="homepage-login-field">
-            <%= link_to "ログイン", new_user_session_path, class: "homepage-to-session-link" %>
-        </div>
-        <div class="homepage-new-create-field">
-            <%= link_to "新規作成", new_user_registration_path, class: "homepage-to-new-user-create-link" %>
-        </div>
-    </div>
+  <%= render 'shared/homepage_header' %>
 </header>
 <main>
   <div class="new-create-main-field">

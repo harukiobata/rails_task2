@@ -18,7 +18,7 @@
     position: fixed;
     width: 90px;
     right: 120px;
-    top: 40px;
+    top: 35px;
 }
 .homepage-to-session-link {
     color: white;
@@ -29,7 +29,7 @@
     position: fixed;
     right: 40px;
     width: 80px;
-    top: 38px;
+    top: 32px;
     height: 30px;
     background: orange;
     border-radius: 5px;
@@ -72,19 +72,21 @@
     color: red;
 }
 .user-icon {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
 }
 .homepage-user-menu {
     position: absolute;
-    top: 34px;
-    right: 40px;
+    top: 25px;
+    right: 60px;
     display: inline-block;
 }
 .user-name {
     color: white;
     position: relative;
-    top: -8px;
+    left: 5px;
+    top: -13px;
+    font-size: 18px;
 }
 .dropdown-menu {
     display: none; /* 初期状態では非表示 */
@@ -94,6 +96,7 @@
     background-color: #fff;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    width: 120px;
 }
   
 .dropdown-menu ul {
@@ -121,6 +124,7 @@
 .user-icon {
     cursor: pointer; /* アイコンや名前をクリック可能に */
 }
+//sidebar
 .sidebar {
     text-decoration: none;
     width: 250px;
@@ -160,4 +164,10 @@
 }
 .sidebar-list-account-link.active {
     color: orange;
+}
+.error-message2 {
+    font-size: 10px;
+    color: red;
+    position: relative;
+    top: 10px;
 }

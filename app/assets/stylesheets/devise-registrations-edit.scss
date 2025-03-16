@@ -1,0 +1,90 @@
+.account-edit-email-field {
+    height: 60px;
+}
+.account-edit-email-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+.account-edit-email-writing {
+    height: 30px;
+    width: 70%;
+    font-size: 16px;
+    position: absolute;
+    left: 217px;
+    top: 60px;
+}
+.account-edit-new-password-field {
+    height: 60px;
+}
+.account-edit-new-password-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+.account-edit-new-password-writing {
+    height: 30px;
+    width: 70%;
+    position: absolute;
+    left: 217px;
+    font-size: 16px;
+    top: 120px;
+}
+.account-edit-new-confirmation-password-field {
+    height: 60px;
+}
+.account-edit-new-confirmation-password-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+.account-edit-new-confirmation-password-writing {
+    position: absolute;
+    height: 30px;
+    width: 70%;
+    left: 217px;
+    font-size: 16px;
+    top: 180px
+}
+.account-edit-current-password-field {
+    height: 60px;
+}
+.account-edit-current-password-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+.account-edit-current-password-writing {
+    position: absolute;
+    height: 30px;
+    width: 70%;
+    left: 217px;
+    font-size: 16px;
+    top: 240px;
+}
+.account-edit-cancel-and-submit-field {
+    height: 70px;
+    width: 70%;
+}
+.account-edit-cancel-field {
+    height: 40px;
+    width: 100px;
+    position: absolute;
+    border: solid;
+    border-radius: 20px;
+    right: 200px;
+}
+.account-edit-cancel-link {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    left: 7px;
+    font-size: 17px;
+    top: 7px;
+}
+.account-edit-submit {
+    height: 42px;
+    width: 105px;
+    border-radius: 20px;
+    border: none;
+    background: coral;
+    color: white;
+    right: 70px;
+    position: absolute;
+}

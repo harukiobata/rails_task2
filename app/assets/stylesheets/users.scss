@@ -119,3 +119,96 @@ body {
     left: 10px;
     top: 8px;
 }
+//profile/edit
+.profile-edit-main-content {
+    position: relative;
+    left: 300px;
+    top: 10px;
+    max-width: 70%;
+    height: 500px;
+}
+.profile-edit-main-heading {
+    font-size: 25px;
+    border-bottom: solid;
+}
+.profile-edit-icon-heading {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: -35px;
+}
+.profile-edit-icon-sending {
+    position: relative;
+    left: 120px;
+    top: -35px;
+    font-weight: bold;
+}
+.profile-edit-name-field {
+    height: 70px;
+}
+.profile-edit-name-heading {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: 12px;
+}
+.profile-edit-name-writing {
+    position: absolute;
+    left: 210px;
+    height: 30px;
+    width: 70%;
+    font-size: 18px;
+    top: 160px;
+}
+.profile-edit-introduction-field {
+    height: 160px;
+}
+.profile-edit-introduction-heading {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: -40px;
+}
+.profile-edit-introduction-writing {
+    height: 120px;
+    width: 70%;
+    position: relative;
+    left: 134px;
+    font-size: 18px;
+    top: 15px;
+}
+.profile-edit-submit-and-cancel-field {
+    height: 70px;
+    width: 70%;
+}
+.profile-edit-cancel-field {
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    border: solid;
+    border-radius: 20px;
+    right: 200px;
+    top: 400px;
+}
+.profile-edit-cancel-link {
+    text-decoration: none;
+    font-size: 17px;
+    color: black;
+    position: relative;
+    top: 7px;
+    left: 7px;
+}
+.profile-edit-submit-field {
+    height: 70px;
+}
+.profile-edit-submit {
+    position: absolute;
+    height: 42px;
+    width: 105px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background: coral;
+    top: 400px;
+    right: 70px;
+}

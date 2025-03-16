@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "./dropdownmenuvar"
+import "./error-modal1"
 
 Rails.start()
 Turbolinks.start()

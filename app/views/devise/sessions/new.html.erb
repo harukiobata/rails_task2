@@ -1,15 +1,16 @@
 <header>
-    <div class="homepage-header-field">
-        <%= link_to 'Potepan Share', homepage_index_path , class: "homepage-header-link"%>
-        <div class="homepage-login-field">
-            <%= link_to "ログイン", new_user_session_path, class: "homepage-to-session-link" %>
-        </div>
-        <div class="homepage-new-create-field">
-            <%= link_to "新規作成", new_user_registration_path, class: "homepage-to-new-user-create-link" %>
-        </div>
-    </div>
+  <%= render 'shared/homepage_header' %>
 </header>
 <main>
+
+  <% if flash[:alert] %>
+    <div id="error-modal" class="modal1 show">
+      <div class="modal-content">
+        <p class="modal1-errormessage">パスワードまたはメールアドレスが間違っています</p>
+      </div>
+    </div>
+  <% end %>
+
   <div class="login-main-field">
   <h2 class="login-main-heading">ログイン</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
