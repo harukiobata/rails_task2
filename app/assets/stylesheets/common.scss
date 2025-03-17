@@ -80,6 +80,8 @@
     top: 25px;
     right: 60px;
     display: inline-block;
+    width: auto;
+    cursor: pointer;
 }
 .user-name {
     color: white;
@@ -115,12 +117,10 @@
     text-decoration: none;
     color: #333;
     display: block;
-}
-  
+} 
 .dropdown-menu li a:hover {
     background-color: #ddd;
-}
-  
+} 
 .user-icon {
     cursor: pointer; /* アイコンや名前をクリック可能に */
 }
