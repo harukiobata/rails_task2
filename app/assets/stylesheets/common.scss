@@ -4,6 +4,7 @@
 .homepage-header-field{
     height: 80px;
     background-color: blue;
+    width: 100%;
 }
 .homepage-header-link {
     text-decoration: none;
@@ -47,6 +48,7 @@
 .homepage-footer-field {
     background-color: blue;
     height: 350px;
+    width: 100%;
 }
 .footer-copyright-and-homepage-area {
     top: 150px;
@@ -128,7 +130,7 @@
 .sidebar {
     text-decoration: none;
     width: 250px;
-    position: fixed;
+    position: absolute;
 }
 .sidebar-ul {
     list-style-type: none;

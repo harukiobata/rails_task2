@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_one_attached :icon
 
   validates :name, presence: true
-
+  has_many  :rooms
 end

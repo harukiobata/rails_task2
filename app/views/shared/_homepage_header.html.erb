@@ -6,6 +6,7 @@
             <span class="user-name"><%= current_user.name %></span>
             <div class="dropdown-menu">
                 <ul>
+                    <li><%= link_to "施設新規登録", new_room_path %></li>
                     <li><%= link_to "アカウント設定", account_user_path %></li>
                     <li><%= link_to "ログアウト", destroy_user_session_path,method: :delete %></li>
                 </ul>

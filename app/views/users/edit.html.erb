@@ -8,7 +8,7 @@
 
 <div class="profile-edit-main-content"> 
     <h3 class="profile-edit-main-heading">プロフィール編集</h3>
-    <%= form_for(@user, url: update_profile_user_path, html: { enctype: 'multipart/form-data' }) do |f| %>
+    <%= form_with model: @user, url: update_profile_user_path, html: { enctype: 'multipart/form-data' } do |f| %>
         <div class="profile-edit-icon-field">
             <%= f.label :icon, 'アイコン画像',class: "profile-edit-icon-heading" %>
             <%= image_tag(@user.icon.attached? ? @user.icon : "default_icon.png", class: "profile-icon") %>
@@ -43,4 +43,6 @@
     <% end %>
 </div>
 </main>
-
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>
