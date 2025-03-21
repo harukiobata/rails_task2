@@ -5,6 +5,7 @@ class CreateRooms < ActiveRecord::Migration[6.1]
       t.text :description
       t.integer :price
       t.string :address
+      t.integer :user_id, foreign_key: true
 
       t.timestamps
     end

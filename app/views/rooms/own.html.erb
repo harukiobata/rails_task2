@@ -1,0 +1,62 @@
+<header>
+    <%= render "shared/homepage_header" %>
+</header>
+<main>
+    <% if flash[:notice] %>
+            <div class="success-modal-content">
+                <p class="success-modal-message"><%= flash[:notice] %></p>
+            </div>
+    <% end %>
+    <div class="room-own-main-content">
+    <% if @rooms.any? %>
+    <table>
+        <thead>
+            <tr>
+                <th>画像</th>
+                <th>施設名</th>
+                <th>紹介文</th>
+                <th>料金</th>
+                <th>作成日</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @rooms.each do |room| %>
+                <tr>
+                    <th><%= image_tag(room.image.attached? ? room.image : "default_image.png", class: "default_image") %></th>
+                    <td><%= link_to room.name, room_path(room.id) %></td> 
+                    <th><%= room.description %></th>
+                    <th><%= room.price %></th>
+                    <th><%= room.created_at.strftime("%Y/%m/%d") %></th>
+                    <th><%= link_to "削除", '#', class: "open-modal-delete", data: { room_id: room.id, room_name: room.name, room_price: room.price,room_image: room.image.attached? ? url_for(room.image) :  asset_path('default_image.png')  } %></th>
+                    <th><%= link_to "編集", edit_room_path(room), class: "own-to-show-link" %></th>
+                </tr>
+            <% end %>
+        </tbody>   
+    </table>
+    <% else %>
+        <p>まだ登録された施設はありません。</p>
+    <% end %>
+    </div>
+    <div class="modal-delete" tabindex="-1" id="modalDelete" style="display: none;">
+    <div class="modal-content2">
+        <div class="modal-header">
+            <h4 class="modal-title">以下の施設を削除しますか？</h4>
+        </div>
+        <div class="modal-body">
+            <p class="modal-body-message">
+                <img id="room-image" class="room-image">
+                <span id="room-name"></span><span id="room-price"></span>
+            </p>
+            <p class="modal-body-message2">よろしければ削除ボタンをクリックしてください</p>
+        <div>
+        <div class="modal-footer">
+            <button type="button" id="confirmDelete" class="btn btn-danger" >削除</button>
+            <button type="button" id="cancelDeleteButton" class="btn btn-secondary" >キャンセル</button>
+        </div>
+    </div>
+</div>
+</main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>

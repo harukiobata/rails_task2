@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "./dropdownmenuvar"
 import "./error-modal1"
+import "./modal-delete"
 
 Rails.start()
 Turbolinks.start()

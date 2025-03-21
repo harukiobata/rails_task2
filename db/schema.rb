@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2025_03_17_124610) do
     t.text "description"
     t.integer "price"
     t.string "address"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
