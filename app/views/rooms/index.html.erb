@@ -1,3 +1,91 @@
 <header>
-    <%= render "shared/homepage_header" %>
+  <%= render "shared/homepage_header" %>
 </header>
+
+<main>
+  <div class="room-index-main-content">
+    <h2 class="room-index-main-heading">施設一覧</h2>
+    
+    <!-- 住所とエリアでの検索 -->
+    <div class="search-section">
+      <h3>住所・エリア検索</h3>
+      <%= form_with(url: rooms_path, method: :get, local: true, class: "search-form") do %>
+        <div class="search-fields">
+          <div class="search-field">
+            <%= label_tag :address, "住所" %>
+            <%= text_field_tag :address, params[:address], placeholder: "住所で検索", class: "search-input" %>
+          </div>
+          
+          <div class="search-field">
+            <%= label_tag :area, "エリア" %>
+            <%= select_tag :area, options_for_select(['東京', '大阪', '京都', '札幌'], params[:area]), prompt: "エリアを選択", class: "search-input" %>
+          </div>
+
+          <div class="search-field">
+            <%= submit_tag "検索", class: "search-button" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- 名前と詳細での検索 -->
+    <div class="search-section">
+      <h3>施設名・詳細検索</h3>
+      <%= form_with(url: rooms_path, method: :get, local: true, class: "search-form") do %>
+        <div class="search-fields">
+          <div class="search-field">
+            <%= label_tag :name, "施設名" %>
+            <%= text_field_tag :name, params[:name], placeholder: "施設名で検索", class: "search-input" %>
+          </div>
+
+          <div class="search-field">
+            <%= label_tag :description, "施設詳細" %>
+            <%= text_field_tag :description, params[:description], placeholder: "詳細で検索", class: "search-input" %>
+          </div>
+
+          <div class="search-field">
+            <%= submit_tag "検索", class: "search-button" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- 絞り込んだ施設一覧 -->
+    <div class="room-list">
+      <h3>施設一覧 (計 <%= @room_count %> 件)</h3>
+      <% if @rooms.any? %>
+        <table class="room-table">
+          <thead>
+            <tr>
+              <th>施設名</th>
+              <th>詳細</th>
+              <th>住所</th>
+              <th>料金</th>
+              <th>編集</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @rooms.each do |room| %>
+              <tr>
+                <td><%= room.name %></td>
+                <td><%= room.description %></td>
+                <td><%= room.address %></td>
+                <td><%= room.price %> 円</td>
+                <td>
+                  <%= link_to "編集", edit_room_path(room), class: "edit-link" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>該当する施設がありません。</p>
+      <% end %>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <%= render "shared/homepage_footer" %>
+</footer>

@@ -2,6 +2,11 @@
     <%= render 'shared/homepage_header' %>
 </header>
 <main>
+<% if flash[:notice] %>
+<div class="success-modal-content">
+    <p class="success-modal-message"><%= flash[:notice] %></p>
+</div>
+<% end %>
 </main>
 <footer>
     <%= render "shared/homepage_footer" %>

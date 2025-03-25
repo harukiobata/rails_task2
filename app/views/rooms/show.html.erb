@@ -2,5 +2,30 @@
     <%= render 'shared/homepage_header' %>
 </header>
 <main>
+    <%= link_to "戻る",:back ,class: "room-show-back-link" %>
 
+    <div  class="room-show-main-contet">
+        <div class="room-show-image-field">
+            <%= image_tag(@room.image.attached? ? @room.image : "default_image.png", class: "default_image") %>
+        </div>
+
+        <div class="room-show-text-content">
+            <div class="room-show-name-field">
+                <span class="room-show-name"><%= @room.name %></span>
+                <spam class="room-show-price">¥<%= @room.price %>~</span>
+            <div>
+
+            <div class="room-show-address-field">
+                <span class="room-show-address"><%= @room.address %></span>
+                <span class="room-show-address-star"><%= raw ("<i class='fa fa-star'></i>" * 5) %></span>
+            </div>
+
+            <div class="room-show-description-field">
+                <p class="room^show-description"><%= @room.description %></p>
+            </div>
+
+         </div>   
 </main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>
