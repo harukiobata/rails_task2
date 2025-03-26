@@ -1,0 +1,30 @@
+<header>
+  <%= render 'shared/homepage_header' %>
+</header>
+
+<main>
+  <%= link_to "戻る", room_path(@room), class: "back-link" %>
+
+  <div class="preview-container">
+    <h2>予約内容確認</h2>
+
+    <!-- 予約情報の確認 -->
+    <div class="preview-info">
+      <p>部屋名: <%= @room.name %></p>
+      <p>チェックイン日: <%= @reservation.check_in_date.strftime("%Y/%m/%d") %></p>
+      <p>チェックアウト日: <%= @reservation.check_out_date.strftime("%Y/%m/%d") %></p>
+      <p>宿泊人数: <%= @reservation.number_of_people %> 名</p>
+      <p>宿泊日数: <%= @stay_duration %> 日</p>
+      <p>料金: ¥<%= @total_price %></p>
+    </div>
+
+    <div class="preview-action-buttons">
+      <%= link_to '予約を確定する', reservations_path, method: :post  %>
+      <%= link_to '修正する', room_path(@room) %>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <%= render 'shared/homepage_footer' %>
+</footer>

@@ -3,9 +3,11 @@
 </header>
 <main>
     <% if flash[:notice] %>
-            <div class="success-modal-content">
+        <div id="success-modal1" class="success-modal1 show"
+            <div class="success-modal1-content">
                 <p class="success-modal-message"><%= flash[:notice] %></p>
             </div>
+        </div>
     <% end %>
 
     <div class="room-own-main-content">

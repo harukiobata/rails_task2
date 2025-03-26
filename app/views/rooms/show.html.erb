@@ -12,7 +12,7 @@
         <div class="room-show-text-content">
             <div class="room-show-name-field">
                 <span class="room-show-name"><%= @room.name %></span>
-                <spam class="room-show-price">¥<%= @room.price %>~</span>
+                <span class="room-show-price">¥<%= @room.price %>~</span>
             <div>
 
             <div class="room-show-address-field">
@@ -24,7 +24,47 @@
                 <p class="room^show-description"><%= @room.description %></p>
             </div>
 
-         </div>   
+            <div class="room-show-reservation-form">
+                <%= form_with model: @reservation, url: preview_reservations_path, method: :post do |form| %>
+                <%= form.hidden_field :room_id, value: @room.id %> <!-- 部屋IDを隠しフィールドとして送信 -->
+          
+                    <div>
+                        <%= form.label :check_in_date, "チェックイン日" %>
+                        <%= form.date_field :check_in_date %>
+                        <% if @reservation.errors[:check_in_date].any? %>
+                            <div class="error-message">
+                                <%= @reservation.errors.full_messages_for(:check_in_date).join(', ') %>
+                            </div>
+                        <% end %>
+                    </div>
+
+                    <div>
+                        <%= form.label :check_out_date, "チェックアウト日" %>
+                        <%= form.date_field :check_out_date %>
+                        <% if @reservation.errors[:check_out_date].any? %>
+                            <div class="error-message">
+                                <%= @reservation.errors.full_messages_for(:check_out_date).join(', ') %>
+                            </div>
+                        <% end %>
+                    </div>
+
+                    <div>
+                        <%= form.label :number_of_people, "人数" %>
+                        <%= form.number_field :number_of_people %>
+                        <% if @reservation.errors[:number_of_people].any? %>
+                            <div class="error-message">
+                                <%= @reservation.errors.full_messages_for(:number_of_people).join(', ') %>
+                            </div>
+                        <% end %>
+                    </div>
+
+                    <div>
+                        <%= form.submit "確認する", class: "room-show-reservation-button" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>   
 </main>
 <footer>
     <%= render "shared/homepage_footer" %>

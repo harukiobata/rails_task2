@@ -7,6 +7,11 @@ Rails.application.routes.draw do
       get 'own', to: 'rooms#own', as: 'own_room'
     end
   end
+  resources :reservations do
+    collection do
+      post 'preview', to: 'reservations#preview', as: 'preview'
+    end
+  end
   root 'homepage#index'
   get 'users/account', to: 'users#account', as: 'account_user'
   get 'users/profile', to: 'users#profile', as: 'profile_user'

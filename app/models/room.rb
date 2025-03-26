@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
     has_one_attached :image
     belongs_to :user
+    has_many  :reservations, dependent: :destroy
 
 
     scope :search_by_address, ->(address) { where("address LIKE ?", "%#{address}%") if address.present? }

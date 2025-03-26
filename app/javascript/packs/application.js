@@ -10,6 +10,7 @@ import "channels"
 import "./dropdownmenuvar"
 import "./error-modal1"
 import "./modal-delete"
+import "./success-modal1"
 
 Rails.start()
 Turbolinks.start()
