@@ -13,42 +13,44 @@
 
     <div class="room-own-main-content">
         <div class="room-own-main-content-heading-field">
-            <h3>登録済み一覧</h3>
+            <h3>予約済み一覧</h3>
         </div>
-        <table class ="room-own-content-table">
-            <thead>
-                <tr> 
-                    <th>画像</th>
-                    <th>施設名</th>
-                    <th>紹介文</th>
-                    <th>合計額</th>
-                    <th>checkin</th>
-                    <th>checkout</th>
-                    <th>予約確定日時</th>
-                    <th>編集</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% @reservations.each do |reservation| %>
-                    <tr>
-                        <td><%= image_tag(reservation.room.image.attached? ? url_for(reservation.room.image) : "default_image.png", class: "room-own-image") %></td>
-                        <td><%= link_to reservation.room.name, room_path(reservation.room) , class: "room-own-tbody-name" %></td> 
-                        <td><%= tag.span reservation.room.description  ,class: "room-own-tbody-description" %></td>
-                        <td><%= tag.span reservation.total_price,class: "room-own-tbody-price" %></td>
-                        <td><%= tag.span reservation.check_in_date.strftime("%Y/%m/%d"),class: "room-own-tbody-create-day" %></td>
-                        <td><%= tag.span reservation.check_out_date.strftime("%Y/%m/%d") %></td>
-                        <td><%= tag.span reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-                        <td><%= link_to "編集", edit_reservation_path(reservation), class: "reservation-index-to-edit" %></td>
-                        <td><%= link_to "削除", '#', class: "open-reservation-modal", data: { reservation_id: reservation.id, room_name: reservation.room.name, room_price: reservation.room.price, 
-                            room_image: reservation.room.image.attached? ? url_for(reservation.room.image) : asset_path('default_image.png'),check_in_date: reservation.check_in_date,
-                            check_out_date: reservation.check_out_date,number_of_people: reservation.number_of_people} %></td>
+        <div class="room-own-content-table-lap">
+            <table class ="room-own-content-table">
+                <thead>
+                    <tr> 
+                        <th>画像</th>
+                        <th>施設名</th>
+                        <th>紹介文</th>
+                        <th>合計額</th>
+                        <th>checkin</th>
+                        <th>checkout</th>
+                        <th>予約確定日時</th>
+                        <th></th>
+                        <th></th>
                     </tr>
-                <% end %>
-            </tbody>   
-        </table>
-    </div>
+                </thead>
 
+                <tbody>
+                    <% @reservations.each do |reservation| %>
+                        <tr>
+                            <td><%= image_tag(reservation.room.image.attached? ? url_for(reservation.room.image) : "default_image.png", class: "room-own-image") %></td>
+                            <td><%= link_to reservation.room.name, room_path(reservation.room) , class: "room-own-tbody-name" %></td> 
+                            <td><%= tag.span reservation.room.description  ,class: "room-own-tbody-description" %></td>
+                            <td><%= tag.span reservation.total_price,class: "room-own-tbody-price" %></td>
+                            <td><%= tag.span reservation.check_in_date.strftime("%Y/%m/%d"),class: "room-own-tbody-create-day" %></td>
+                            <td><%= tag.span reservation.check_out_date.strftime("%Y/%m/%d") %></td>
+                            <td><%= tag.span reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+                            <td><%= link_to "編集", edit_reservation_path(reservation), class: "reservation-index-to-edit" %></td>
+                            <td><%= link_to "削除", '#', class: "open-reservation-modal", data: { reservation_id: reservation.id, room_name: reservation.room.name, room_price: reservation.room.price, 
+                                room_image: reservation.room.image.attached? ? url_for(reservation.room.image) : asset_path('default_image.png'),check_in_date: reservation.check_in_date,
+                                check_out_date: reservation.check_out_date,number_of_people: reservation.number_of_people} %></td>
+                        </tr>
+                    <% end %>
+                </tbody>   
+            </table>
+        </div>
+    </div>
 
         <!-- 予約削除確認モーダル -->
     <div class="reservation-modal-delete" tabindex="-1" id="reservationModalDelete" style="display: none;">

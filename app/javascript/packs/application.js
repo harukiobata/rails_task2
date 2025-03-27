@@ -12,6 +12,7 @@ import "./error-modal1"
 import "./modal-delete"
 import "./success-modal1"
 import "./reservation-modal-delete"
+import "./error-message-modal"
 
 Rails.start()
 Turbolinks.start()

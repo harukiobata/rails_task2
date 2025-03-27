@@ -4,6 +4,6 @@ ja:
       reservation: 予約
     attributes:
       reservation:
-        check_in_date: チェックイン日
-        check_out_date: チェックアウト日
+        check_in_date: チェックイン
+        check_out_date: チェックアウト
         number_of_people: 人数

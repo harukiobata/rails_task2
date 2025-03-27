@@ -2,11 +2,10 @@
     <%= render 'shared/homepage_header' %>
 </header>
 <main>
-    <%= link_to "戻る",:back ,class: "room-show-back-link" %>
-
-    <div  class="room-show-main-contet">
+    <div  class="room-show-main-content">
+        <%= link_to "戻る",:back ,class: "room-show-back-link" %>
         <div class="room-show-image-field">
-            <%= image_tag(@room.image.attached? ? @room.image : "default_image.png", class: "default_image") %>
+            <%= image_tag(@room.image.attached? ? @room.image : "default_image.png", class: "room-show-image") %>
         </div>
 
         <div class="room-show-text-content">
@@ -21,48 +20,46 @@
             </div>
 
             <div class="room-show-description-field">
-                <p class="room^show-description"><%= @room.description %></p>
+                <p class="room-show-description"><%= @room.description %></p>
             </div>
-
-            <div class="room-show-reservation-form">
-                <%= form_with model: @reservation, url: preview_reservations_path, method: :post do |form| %>
-                <%= form.hidden_field :room_id, value: @room.id %> <!-- 部屋IDを隠しフィールドとして送信 -->
-          
-                    <div>
-                        <%= form.label :check_in_date, "チェックイン日" %>
-                        <%= form.date_field :check_in_date %>
+            <%= form_with model: @reservation, url: preview_reservations_path, method: :post do |form| %>
+            <%= form.hidden_field :room_id, value: @room.id %> <!-- 部屋IDを隠しフィールドとして送信 -->
+                <!--ここからはreservationの投稿フォーム-->
+                <div class="room-show-reservation-form">
+                    <div class="room-show-reservation-check-in-form">
+                        <%= form.label :check_in_date, "チェックイン日" ,class: "room-show-reservation-check-in-heading"%><br>
+                        <%= form.date_field :check_in_date ,class: "room-show-reservation-check-in-picking"%>
                         <% if @reservation.errors[:check_in_date].any? %>
-                            <div class="error-message">
+                            <div class="reservation-error-message1">
                                 <%= @reservation.errors.full_messages_for(:check_in_date).join(', ') %>
                             </div>
                         <% end %>
                     </div>
 
-                    <div>
-                        <%= form.label :check_out_date, "チェックアウト日" %>
-                        <%= form.date_field :check_out_date %>
+                    <div class="room-show-reservation-check-out-form">
+                        <%= form.label :check_out_date, "チェックアウト日",class: "room-show-reservation-check-out-heading" %><br>
+                        <%= form.date_field :check_out_date,class: "room-show-reservation-check-out-picking" %>
                         <% if @reservation.errors[:check_out_date].any? %>
-                            <div class="error-message">
+                            <div class="reservation-error-message2">
                                 <%= @reservation.errors.full_messages_for(:check_out_date).join(', ') %>
                             </div>
                         <% end %>
                     </div>
 
-                    <div>
-                        <%= form.label :number_of_people, "人数" %>
-                        <%= form.number_field :number_of_people %>
+                    <div class="room-show-reservation-people-form">
+                        <%= form.label :number_of_people, "人数" ,class: "room-show-reservation-people-heading"%><br>
+                        <%= form.number_field :number_of_people ,class: "room-show-reservation-people-writing"%>
                         <% if @reservation.errors[:number_of_people].any? %>
-                            <div class="error-message">
+                            <div class="reservation-error-message3">
                                 <%= @reservation.errors.full_messages_for(:number_of_people).join(', ') %>
                             </div>
                         <% end %>
                     </div>
-
-                    <div>
-                        <%= form.submit "確認する", class: "room-show-reservation-button" %>
-                    </div>
-                <% end %>
+                </div>
+            <div class="room-show-reservation-sending-field">
+                <%= form.submit "確認する", class: "room-show-reservation-button" %>
             </div>
+            <% end %>
         </div>
     </div>   
 </main>

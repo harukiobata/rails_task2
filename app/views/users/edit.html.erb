@@ -2,6 +2,15 @@
    <%= render 'shared/homepage_header' %>
 </header>
 <main>
+
+<% if flash[:alert] %>
+    <div id="error-message-modal" class="error-message-modal show"
+        <div class="error-message-content">
+            <p class="error-message-content-message"><%= flash[:alert] %></p>
+        </div>
+    </div>
+<% end %>
+
 <h1 class="account-main-header">設定</h1>
 
 <%= render 'shared/sidebar' %>

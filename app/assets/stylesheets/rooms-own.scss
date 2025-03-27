@@ -24,11 +24,13 @@
     text-decoration: none;
     color: red;
     cursor: pointer;
+    font-size: 14px;
 }
 .own-to-show-link {
     text-decoration: none;
     color: blue;
     cursor: pointer;
+    font-size: 14px;
 }
 //successmodal1について
 //やってて気づいたこと多分content機能してない
@@ -47,8 +49,8 @@
     width: auto;
     height: auto;
     text-align: center;
-  }
-  .success-modal1-content {
+}
+.success-modal1-content {
     background-color: black;
     margin: 0 auto;
     padding-left: 20px;
@@ -59,11 +61,15 @@
     max-width: 400px; 
     max-height: 50px;
     text-align: center;
-  }
-  .success-modal-message {
+}
+.success-modal-message {
     font-size: 14px; 
     color:white; 
-  }
-  .success-modal1.show {
+}
+.success-modal1.show {
     display: block ; /* show クラスが付与された場合に表示 */
-  }
+}
+//tableのラップ
+.room-own-main-content {
+    overflow-x: auto;  
+}

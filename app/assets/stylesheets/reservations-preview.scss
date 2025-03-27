@@ -1,0 +1,108 @@
+.preview-main-content {
+    max-width: 570px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 650px;
+    position: relative;
+}
+.preview-main-heading {
+    font-size: 25px;
+    margin-top: 40px;
+}
+.preview-info-room-name-field {
+    margin-bottom: 30px;
+}
+.preview-info-room-name {
+    font-weight: bold;
+}
+.preview-your-room-name {
+    position: absolute;
+    font-weight: bold;
+    right: 0;
+}
+.preview-info-check-in-field {
+    margin-bottom: 30px;
+}
+.preview-info-check-in {
+    font-weight: bold;
+}
+.preview-your-check-in {
+    position: absolute;
+    font-weight: bold;
+    right: 0;
+}
+.preview-info-check-out-field {
+    margin-bottom: 30px;
+}
+.preview-info-check-out {
+    font-weight: bold;
+}
+.preview-your-check-out {
+    position: absolute;
+    font-weight: bold;
+    right: 0;
+}
+.preview-info-stay-duration-field {
+    margin-bottom: 30px;
+}
+.preview-info-stay-duration {
+    font-weight: bold;
+}
+.preview-your-stay-duration {
+    position: absolute;
+    font-weight: bold;
+    right: 0;
+}
+.preview-info-people-field {
+    margin-bottom: 30px;
+}
+.preview-info-people {
+    font-weight: bold;
+}
+.preview-your-people {
+    position: absolute;
+    font-weight: bold;
+    right: 0;
+}
+.preview-info-total-price-field {
+    margin-bottom: 30px;
+}
+.preview-info-total-price {
+    font-weight: bold;
+}
+.preview-your-total-price {
+    position: absolute;
+    font-weight: bold;
+    right: 0;
+}
+.preview-submit-or-cancel {
+    height: 120px;
+}
+.preview-submit-button {
+    height: 50px;
+    width: 570px;
+    position: absolute;
+    border-radius: 20px;
+    border: none;
+    background: coral;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+.preview-cancel-field {
+    height: 50px;
+    position: relative;
+    top: 70px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.preview-cancel-link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    position: relative;
+    left: 245px;
+    top: 12px;
+}

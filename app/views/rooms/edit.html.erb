@@ -2,6 +2,15 @@
     <%= render "shared/homepage_header" %>
 </header>
 <main>
+
+    <% if flash[:alert] %>
+        <div id="error-message-modal" class="error-message-modal show"
+            <div class="error-message-content">
+                <p class="error-message-content-message"><%= flash[:alert] %></p>
+            </div>
+        </div>
+    <% end %>
+
     <div class="room-edit-main-content">
         <h2 class="room-edit-main-heading">施設情報の編集</h2>
         <%= form_with model: @room,html: { enctype: 'multipart/form-data' } do |f| %>
