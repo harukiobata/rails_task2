@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     collection do
       post 'preview', to: 'reservations#preview', as: 'preview'
     end
+    member do
+      get 'edit_preview', to: 'reservations#edit_preview', as: 'edit_preview'
+    end
   end
   root 'homepage#index'
   get 'users/account', to: 'users#account', as: 'account_user'

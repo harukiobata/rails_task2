@@ -3,7 +3,7 @@
 </header>
 
 <main>
-  <%= link_to "戻る", room_path(@room), class: "back-link" %>
+  <%= link_to "戻る", edit_reservation_path(@reservation), class: "back-link" %>
 
   <div class="preview-container">
     <h2>予約内容確認</h2>
@@ -18,15 +18,16 @@
       <p>料金: ¥<%= @total_price %></p>
     </div>
 
-    <%= form_with model: @reservation, url: reservations_path, method: :post do |form| %>
-        <%= form.hidden_field :room_id, value: @reservation.room_id %>
-        <%= form.hidden_field :check_in_date, value: @reservation.check_in_date %>
-        <%= form.hidden_field :check_out_date, value: @reservation.check_out_date %>
-        <%= form.hidden_field :number_of_people, value: @reservation.number_of_people %>
-        <div class="preview-action-buttons">
-          <%= form.submit '予約を確定する', class: 'confirm-button' %>
-          <%= link_to '修正する', room_path(@room), class: 'edit-link' %>
-        </div>
+    <!-- 確認ボタン -->
+    <%= form_with model: @reservation, url: reservation_path(@reservation), method: :patch do |form| %>
+      <%= form.hidden_field :check_in_date, value: @reservation.check_in_date %>
+      <%= form.hidden_field :check_out_date, value: @reservation.check_out_date %>
+      <%= form.hidden_field :number_of_people, value: @reservation.number_of_people %>
+
+      <div class="preview-action-buttons">
+        <%= form.submit '予約を確定する', class: 'confirm-button' %>
+        <%= link_to '修正する', edit_reservation_path(@reservation), class: 'edit-link' %>
+      </div>
     <% end %>
   </div>
 </main>

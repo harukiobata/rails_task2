@@ -1,6 +1,8 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :room
+  
+  attr_accessor :stay_duration, :total_price
 
   validates :check_in_date, presence: true
   validates :check_out_date, presence: true

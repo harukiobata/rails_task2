@@ -42,6 +42,7 @@
     display: flex;
     position: relative;
     left: 25px;
+    object-fit: cover; 
 }
 
 .modal-title {
@@ -81,6 +82,7 @@
     border-radius: 10px;
     position: absolute;
     left: 85px;
+    cursor: pointer;
 }
 
 .btn-secondary {
@@ -92,4 +94,5 @@
     position: relative;
     left: 235px;
     font-size: 15px;
+    cursor: pointer;
 }

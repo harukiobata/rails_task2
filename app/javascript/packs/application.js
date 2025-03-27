@@ -11,6 +11,7 @@ import "./dropdownmenuvar"
 import "./error-modal1"
 import "./modal-delete"
 import "./success-modal1"
+import "./reservation-modal-delete"
 
 Rails.start()
 Turbolinks.start()
