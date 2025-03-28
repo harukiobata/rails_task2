@@ -7,30 +7,17 @@ class RoomsController < ApplicationController
 
     def index
         @rooms = Room.all
-
-        # エリア検索 -> addressカラムに対する部分一致検索
-        if params[:area].present?
-            @rooms = @rooms.where("address LIKE ?", "%#{params[:area]}%")
-            @room_count = @rooms.count  # エリア検索結果の件数をカウント
-        end
   
-        # 住所のあいまい検索
-        if params[:address].present?
-            @rooms = @rooms.search_by_address(params[:address])
-            @room_count = @rooms.count  # 住所検索結果の件数をカウント
+        if params[:address].present? && params[:keyword].present?
+            @rooms = @rooms.search_by_address_and_keyword(params[:address], params[:keyword])
+        elsif params[:address].present?
+            @rooms = @rooms.search_by_address(params[:address]) 
+        elsif params[:keyword].present?
+            @rooms = @rooms.search_by_name_or_description(params[:keyword])
         end
-  
-        # 施設名（name）のあいまい検索
-        if params[:name].present?
-            @rooms = @rooms.search_by_name(params[:name])
-            @room_count = @rooms.count  # 施設名検索結果の件数をカウント
-        end
-  
-        # 施設詳細（description）のあいまい検索
-        if params[:description].present?
-            @rooms = @rooms.search_by_description(params[:description])
-            @room_count = @rooms.count  # 施設詳細検索結果の件数をカウント
-        end
+      
+        # 施設の件数
+        @room_count = @rooms.count
     end
 
     def new

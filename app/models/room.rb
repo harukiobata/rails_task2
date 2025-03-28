@@ -6,16 +6,10 @@ class Room < ApplicationRecord
 
     scope :search_by_address, ->(address) { where("address LIKE ?", "%#{address}%") if address.present? }
 
-    # 施設名（name）でのあいまい検索
-    scope :search_by_name, ->(name) { where("name LIKE ?", "%#{name}%") if name.present? }
-  
-    # 施設詳細（description）でのあいまい検索
-    scope :search_by_description, ->(description) { where("description LIKE ?", "%#{description}%") if description.present? }
-  
-    # 住所（address）内でエリア（東京・大阪・京都・札幌）の部分一致検索
-    scope :search_by_area, ->(area) { where("address LIKE ?", "%#{area}%") if area.present? }
-
-
+    # 施設名または施設詳細で検索
+    scope :search_by_name_or_description, ->(keyword) { where("name LIKE ? OR description LIKE ?", "%#{keyword}%", "%#{keyword}%") }
+    #同時検索用（:address,:keyword)
+    scope :search_by_address_and_keyword, ->(address, keyword) { where("address LIKE ? AND (name LIKE ? OR description LIKE ?)", "%#{address}%", "%#{keyword}%", "%#{keyword}%")}
 
     validates :name, presence: true
     validates :description, presence: true

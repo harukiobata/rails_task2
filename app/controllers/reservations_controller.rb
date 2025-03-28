@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
         @room = @reservation.room
         #@room = Room.find(@reservation.room_id)
         if @reservation.invalid?
-          flash[:alert] = @reservation.errors.full_messages.join(", ")
+          flash[:alert] = "情報量が不足しています"
           render 'rooms/show'
           return
         end
@@ -45,7 +45,7 @@ class ReservationsController < ApplicationController
         @room = @reservation.room
         @reservation.assign_attributes(reservation_params)
         if @reservation.invalid?
-            flash[:alert] = @reservation.errors.full_messages.join(", ")
+            flash[:alert] = "情報量が不足しています"
             render :edit
             return
         end

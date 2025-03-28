@@ -5,49 +5,29 @@
 <main>
   <div class="room-index-main-content">
     <h2 class="room-index-main-heading">施設一覧</h2>
-    
-    <!-- 住所とエリアでの検索 -->
-    <div class="search-section">
-      <h3>住所・エリア検索</h3>
-      <%= form_with(url: rooms_path, method: :get, local: true, class: "search-form") do %>
-        <div class="search-fields">
-          <div class="search-field">
-            <%= label_tag :address, "住所" %>
-            <%= text_field_tag :address, params[:address], placeholder: "住所で検索", class: "search-input" %>
-          </div>
-          
-          <div class="search-field">
-            <%= label_tag :area, "エリア" %>
-            <%= select_tag :area, options_for_select(['東京', '大阪', '京都', '札幌'], params[:area]), prompt: "エリアを選択", class: "search-input" %>
-          </div>
-
-          <div class="search-field">
-            <%= submit_tag "検索", class: "search-button" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
 
     <!-- 名前と詳細での検索 -->
     <div class="search-section">
-      <h3>施設名・詳細検索</h3>
-      <%= form_with(url: rooms_path, method: :get, local: true, class: "search-form") do %>
-        <div class="search-fields">
-          <div class="search-field">
-            <%= label_tag :name, "施設名" %>
-            <%= text_field_tag :name, params[:name], placeholder: "施設名で検索", class: "search-input" %>
-          </div>
-
-          <div class="search-field">
-            <%= label_tag :description, "施設詳細" %>
-            <%= text_field_tag :description, params[:description], placeholder: "詳細で検索", class: "search-input" %>
-          </div>
-
-          <div class="search-field">
-            <%= submit_tag "検索", class: "search-button" %>
-          </div>
+    <%= form_with(url: rooms_path, method: :get, local: true, class: "search-form") do %>
+      <div class="search-fields">
+        <!-- 住所検索 -->
+        <div class="search-field">
+          <%= label_tag :address, "エリア検索" %>
+          <%= text_field_tag :address, params[:address], placeholder: "住所で検索", class: "search-input" %>
         </div>
-      <% end %>
+
+        <!-- 施設名・施設詳細検索 -->
+        <div class="search-field">
+          <%= label_tag :keyword, "キーワード検索" %>
+          <%= text_field_tag :keyword, params[:keyword], placeholder: "施設名または施設詳細で検索", class: "search-input" %>
+        </div>
+
+        <!-- 検索ボタン -->
+        <div class="search-field">
+          <%= submit_tag "検索", class: "search-button" %>
+        </div>
+      </div>
+    <% end %>
     </div>
 
     <!-- 絞り込んだ施設一覧 -->
@@ -61,19 +41,15 @@
               <th>詳細</th>
               <th>住所</th>
               <th>料金</th>
-              <th>編集</th>
             </tr>
           </thead>
           <tbody>
             <% @rooms.each do |room| %>
               <tr>
-                <td><%= room.name %></td>
+                <td><%= link_to room.name, room_path(room) %></td> 
                 <td><%= room.description %></td>
                 <td><%= room.address %></td>
                 <td><%= room.price %> 円</td>
-                <td>
-                  <%= link_to "編集", edit_room_path(room), class: "edit-link" %>
-                </td>
               </tr>
             <% end %>
           </tbody>

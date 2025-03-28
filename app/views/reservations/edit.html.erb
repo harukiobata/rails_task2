@@ -3,57 +3,70 @@
 </header>
 <main>
 
-    <div class="reservation-edit-main-content">
-        <div class="reservation-edit-main-heading">
-            <h3 class="reservation-edit-heading">再予約する</h3>
+    <% if flash[:alert] %>
+        <div id="error-message-modal" class="error-message-modal show"
+            <div class="error-message-content">
+                <p class="error-message-content-message"><%= flash[:alert] %></p>
+            </div>
         </div>
+    <% end %>
+
+    <div class="reservation-edit-main-content">
+        <h3 class="reservation-edit-heading">再予約する</h3>
         <%= form_with model: @reservation, url: edit_preview_reservation_path(@reservation), method: :get do |f| %> 
         <div class="reservation-edit-image-field">
-            <%= image_tag(@reservation.room.image.attached? ? url_for(@reservation.room.image) : "default_image.png", class: "room-image") %>
+            <%= image_tag(@reservation.room.image.attached? ? url_for(@reservation.room.image) : "default_image.png", class: "edit-room-image") %>
         </div>
-        <div class="reservation-edit-room-information-field">
-            <span class="reservation-edit-name"><%= @reservation.room.name %></span>
-            <span class="reservation-edit-price"><%= @reservation.room.price %></span>
-        </div>
-        <div class="reservation-edit-room-information2-field">
-            <span class="reservation-edit-address"><%= @reservation.room.address %></span>
-            <span class="reservation-edit-star"><%= raw ("<i class='fa fa-star'></i>" * 5) %></span>
-        </div>
-        <div class="reservation-edit-description-field">
-            <span class="reservation-edit-description"><%= @reservation.room.description %></span>
-        </div>
-        <div class="reservation-edit-reservation-field">
-            <div class="reservation-edit-check-in-field">
-                <%= f.label :check_in_date, "チェックイン" %>
-                <%= f.date_field :check_in_date, class: "form-control", value: @reservation.check_in_date %>
-                <% if @reservation.errors[:check_in_date].any? %>
-                    <div class="reservation-error-message1">
-                        <%= @reservation.errors.full_messages_for(:check_in_date).join(', ') %>
-                    </div>
-                <% end %>
-            </div>
-            <div class="form-group">
-                <%= f.label :check_out_date, "チェックアウト" %>
-                <%= f.date_field :check_out_date, class: "form-control", value: @reservation.check_out_date %>
-                <% if @reservation.errors[:check_out_date].any? %>
-                    <div class="reservation-error-message2">
-                        <%= @reservation.errors.full_messages_for(:check_out_date).join(', ') %>
-                    </div>
-                <% end %>
+        <div class="reservation-edit-text-content">
+            <div class="reservation-edit-room-information-field">
+                <span class="reservation-edit-name"><%= @reservation.room.name %></span>
+                <span class="reservation-edit-price">¥<%= @reservation.room.price %>~</span>
             </div>
 
-            <div class="form-group">
-                <%= f.label :number_of_people, "人数" %>
-                <%= f.number_field :number_of_people, class: "form-control", value: @reservation.number_of_people %>
-                <% if @reservation.errors[:number_of_people].any? %>
-                    <div class="reservation-error-message3">
-                        <%= @reservation.errors.full_messages_for(:number_of_people).join(', ') %>
-                    </div>
-                <% end %>
+            <div class="reservation-edit-room-information2-field">
+                <span class="reservation-edit-address"><%= @reservation.room.address %></span>
+                <span class="reservation-edit-star"><%= raw ("<i class='fa fa-star'></i>" * 5) %></span>
             </div>
-            <div class="form-group">
-                <%= f.submit "更新する", class: "btn btn-primary" %>
-                <%= link_to 'キャンセル', reservations_path, class: "btn btn-secondary" %>
+
+            <div class="reservation-edit-description-field">
+                <p class="reservation-edit-description"><%= @reservation.room.description %></p>
+            </div>
+            <div class="reservation-edit-reservation-field">
+                <div class="reservation-edit-check-in-field">
+                    <%= f.label :check_in_date, "チェックイン" ,class: "reservation-edit-check-in-heading"%><br>
+                    <%= f.date_field :check_in_date, value: @reservation.check_in_date ,class: "reservation-edit-check-in-picking"%>
+                    <% if @reservation.errors[:check_in_date].any? %>
+                        <div class="reservation-edit-error-message1">
+                            <%= @reservation.errors.full_messages_for(:check_in_date).join(', ') %>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div class="reservation-edit-check-out-field">
+                    <%= f.label :check_out_date, "チェックアウト" ,class: "reservation-edit-check-out-heading"%><br>
+                    <%= f.date_field :check_out_date, value: @reservation.check_out_date ,class: "reservation-edit-check-out-picking"%>
+                    <% if @reservation.errors[:check_out_date].any? %>
+                        <div class="reservation-edit-error-message2">
+                            <%= @reservation.errors.full_messages_for(:check_out_date).join(', ') %>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div class="reservation-edit-people-field">
+                    <%= f.label :number_of_people, "人数" ,class: "reservation-edit-people-heading"%><br>
+                    <%= f.number_field :number_of_people, value: @reservation.number_of_people ,class: "reservation-edit-people-writing"%>
+                    <% if @reservation.errors[:number_of_people].any? %>
+                        <div class="reservation-edit-error-message3">
+                            <%= @reservation.errors.full_messages_for(:number_of_people).join(', ') %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="reservation-edit-submit-or-cancel">
+                <%= f.submit "更新する", class: "reservation-edit-submit " %>
+                <div class="reservation-edit-cancel-field">
+                    <%= link_to 'キャンセル', reservations_path, class: "reservation-edit-cancel-link" %>
+                </div>
             </div>
             <% end %>
         </div>

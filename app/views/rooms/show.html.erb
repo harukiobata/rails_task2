@@ -2,6 +2,15 @@
     <%= render 'shared/homepage_header' %>
 </header>
 <main>
+
+    <% if flash[:alert] %>
+        <div id="error-message-modal" class="error-message-modal show"
+            <div class="error-message-content">
+                <p class="error-message-content-message"><%= flash[:alert] %></p>
+            </div>
+        </div>
+    <% end %>
+
     <div  class="room-show-main-content">
         <%= link_to "戻る",:back ,class: "room-show-back-link" %>
         <div class="room-show-image-field">
