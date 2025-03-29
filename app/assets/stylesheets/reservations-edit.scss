@@ -70,6 +70,10 @@
     height: 120px;
     top: 270px;
 }
+.reservation-edit-check-in-field {
+    width: 200px;
+    padding-left: 40px;
+}
 .reservation-edit-check-in-heading {
     font-size: 15px;
     font-weight: bold;
@@ -81,8 +85,12 @@
     height: 40px;
     width: 200px;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 40px;
+}
+.reservation-edit-check-out-field {
+    width: 200px;
+    padding-left: 25px;
 }
 .reservation-edit-check-out-heading {
     font-size: 15px;
@@ -95,8 +103,11 @@
     position: absolute;
     height: 40px;
     width: 200px;
-    top: 50px;
+    top: 60px;
     left: 265px;
+}
+.reservation-edit-people-field {
+    padding-left: 25px;
 }
 .reservation-edit-people-heading {
     top: 10px;
@@ -109,7 +120,7 @@
     height: 38px;
     width: 200px;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 490px;
 }
 .reservation-edit-submit-or-cancel {
@@ -146,24 +157,8 @@
     left: 330px;
     top: 15px;
 }
-.reservation-edit-error-message1 {
+.reservation-edit-error-message {
     font-size: 10px;
     color: red;
-    position: relative;
-    top: 5px;
-    left: 40px;
-}
-.reservation-edit-error-message2 {
-    font-size: 10px;
-    color: red;
-    position: relative;
-    top: 5px;
-    left: 115px;
-}
-.reservation-edit-error-message3 {
-    font-size: 10px;
-    color: red;
-    position: relative;
-    top: 5px;
-    left: 183px;
+    margin-top: 5px;
 }

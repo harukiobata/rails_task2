@@ -20,7 +20,7 @@
         <div class="reservation-edit-text-content">
             <div class="reservation-edit-room-information-field">
                 <span class="reservation-edit-name"><%= @reservation.room.name %></span>
-                <span class="reservation-edit-price">¥<%= @reservation.room.price %>~</span>
+                <span class="reservation-edit-price">¥<%= number_with_delimiter(@reservation.room.price) %>~</span>
             </div>
 
             <div class="reservation-edit-room-information2-field">
@@ -36,7 +36,7 @@
                     <%= f.label :check_in_date, "チェックイン" ,class: "reservation-edit-check-in-heading"%><br>
                     <%= f.date_field :check_in_date, value: @reservation.check_in_date ,class: "reservation-edit-check-in-picking"%>
                     <% if @reservation.errors[:check_in_date].any? %>
-                        <div class="reservation-edit-error-message1">
+                        <div class="reservation-edit-error-message">
                             <%= @reservation.errors.full_messages_for(:check_in_date).join(', ') %>
                         </div>
                     <% end %>
@@ -46,7 +46,7 @@
                     <%= f.label :check_out_date, "チェックアウト" ,class: "reservation-edit-check-out-heading"%><br>
                     <%= f.date_field :check_out_date, value: @reservation.check_out_date ,class: "reservation-edit-check-out-picking"%>
                     <% if @reservation.errors[:check_out_date].any? %>
-                        <div class="reservation-edit-error-message2">
+                        <div class="reservation-edit-error-message">
                             <%= @reservation.errors.full_messages_for(:check_out_date).join(', ') %>
                         </div>
                     <% end %>
@@ -56,7 +56,7 @@
                     <%= f.label :number_of_people, "人数" ,class: "reservation-edit-people-heading"%><br>
                     <%= f.number_field :number_of_people, value: @reservation.number_of_people ,class: "reservation-edit-people-writing"%>
                     <% if @reservation.errors[:number_of_people].any? %>
-                        <div class="reservation-edit-error-message3">
+                        <div class="reservation-edit-error-message">
                             <%= @reservation.errors.full_messages_for(:number_of_people).join(', ') %>
                         </div>
                     <% end %>

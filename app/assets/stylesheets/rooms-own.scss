@@ -38,8 +38,8 @@
     display: none ;
     position: fixed;
     z-index: 9999;
-    top: 90%;
-    left: 40%;
+    top: 10%;
+    left: 42px;
     max-width: 400px;
     max-height: 50px;
     background-color: black;
@@ -67,7 +67,7 @@
     color:white; 
 }
 .success-modal1.show {
-    display: block ; /* show クラスが付与された場合に表示 */
+    display: block ; 
 }
 //tableのラップ
 .room-own-main-content {

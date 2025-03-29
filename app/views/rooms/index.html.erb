@@ -3,62 +3,46 @@
 </header>
 
 <main>
-  <div class="room-index-main-content">
-    <h2 class="room-index-main-heading">施設一覧</h2>
-
-    <!-- 名前と詳細での検索 -->
-    <div class="search-section">
-    <%= form_with(url: rooms_path, method: :get, local: true, class: "search-form") do %>
-      <div class="search-fields">
-        <!-- 住所検索 -->
-        <div class="search-field">
-          <%= label_tag :address, "エリア検索" %>
-          <%= text_field_tag :address, params[:address], placeholder: "住所で検索", class: "search-input" %>
+  <div class="room-index-search-content">
+    <div class="room-index-search-section">
+      <%= form_with(url: rooms_path, method: :get, local: true) do %>
+        <div class="room-index-search-field">
+          <div class="search-field-content">
+            <%= text_field_tag :address, params[:address], placeholder: "エリア名で検索", class: "room-index-search" %>
+            <%= text_field_tag :keyword, params[:keyword], placeholder: "キーワードで検索", class: "room-index-search" %>
+            <%= submit_tag "検索", class: "room-index-search-button" %>
+          </div>
         </div>
-
-        <!-- 施設名・施設詳細検索 -->
-        <div class="search-field">
-          <%= label_tag :keyword, "キーワード検索" %>
-          <%= text_field_tag :keyword, params[:keyword], placeholder: "施設名または施設詳細で検索", class: "search-input" %>
-        </div>
-
-        <!-- 検索ボタン -->
-        <div class="search-field">
-          <%= submit_tag "検索", class: "search-button" %>
-        </div>
-      </div>
-    <% end %>
-    </div>
-
-    <!-- 絞り込んだ施設一覧 -->
-    <div class="room-list">
-      <h3>施設一覧 (計 <%= @room_count %> 件)</h3>
-      <% if @rooms.any? %>
-        <table class="room-table">
-          <thead>
-            <tr>
-              <th>施設名</th>
-              <th>詳細</th>
-              <th>住所</th>
-              <th>料金</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @rooms.each do |room| %>
-              <tr>
-                <td><%= link_to room.name, room_path(room) %></td> 
-                <td><%= room.description %></td>
-                <td><%= room.address %></td>
-                <td><%= room.price %> 円</td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% else %>
-        <p>該当する施設がありません。</p>
       <% end %>
     </div>
-
+  </div>
+  <div class="room-index-main-container">
+    <div class="room-list">
+      <h3 class="room-list-heading"><%= @room_count %> 件が見つかりました。</h3>
+      <% if @rooms.any? %>
+        <div class="room-index-grid-content">
+          <% @rooms.each do |room| %>
+            <div class="room-index-content">
+              <div class="room-index-image-field">
+                <%= image_tag(room.image.attached? ? room.image : "default_image.png", class: "room-index-image") %>
+              </div>
+              <div class="room-index-text-content">
+                <h4 class="room-index-name"><%= room.name %></h4>
+                <p class="room-index-address"><%= room.address %></p>
+                <span class="room-index-star"><%= raw ("<i class='fa fa-star'></i>" * 5) %></span>
+                <p class="room-index-description"><%= room.description %></p>
+                <p class="room-index-price">¥<%= number_with_delimiter(room.price) %></p>
+                <div class="room-show-link-field">
+                  <%= link_to "詳細はこちら", room_path(room) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="room-index-none-content-text">該当する施設がありません。</p>
+      <% end %>
+    </div>
   </div>
 </main>
 

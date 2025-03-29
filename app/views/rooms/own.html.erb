@@ -34,7 +34,7 @@
                             <td><%= image_tag(room.image.attached? ? room.image : "default_image.png", class: "room-own-image") %></td>
                             <td><%= link_to room.name, room_path(room.id) , class: "room-own-tbody-name" %></td> 
                             <td><%= tag.span room.description  ,class: "room-own-tbody-description" %></td>
-                            <td>¥<%= tag.span room.price ,class: "room-own-tbody-price" %>~</td>
+                            <td>¥<%= tag.span number_with_delimiter(room.price) ,class: "room-own-tbody-price" %>~</td>
                             <td><%= tag.span room.created_at.strftime("%Y/%m/%d") ,class: "room-own-tbody-create-day" %></td>
                             <td><%= link_to "編集", edit_room_path(room), class: "own-to-show-link" %></td>
                             <td><%= link_to "削除", '#', class: "open-modal-delete", data: { room_id: room.id, room_name: room.name, room_price: room.price,room_image: room.image.attached? ? url_for(room.image) :  asset_path('default_image.png')  } %></td>

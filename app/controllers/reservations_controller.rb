@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :redirect_to_registration_if_not_logged_in 
     def index
         @reservations = Reservation.where(user_id: current_user.id).includes(:room)
         @reservations.each do |reservation|
@@ -70,6 +70,13 @@ class ReservationsController < ApplicationController
         @reservation.destroy
         flash[:notice] = "予約が削除されました。" 
         redirect_to reservations_path
+    end
+
+    def redirect_to_registration_if_not_logged_in  #絶対ないとは思うが保険で 
+        unless user_signed_in?  
+          flash[:alert] = "新規登録またはログインしてください"
+          redirect_to new_user_registration_path  
+        end
     end
 
     private

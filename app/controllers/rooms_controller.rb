@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-    before_action :authenticate_user!  # ログインしていることを確認
+    before_action :redirect_to_registration_if_not_logged_in 
 
     def own
         @rooms = current_user.rooms
@@ -61,6 +61,13 @@ class RoomsController < ApplicationController
         @room.destroy
         flash[:notice] = "登録されていた施設を削除しました"
         redirect_to own_room_rooms_path
+    end
+
+    def redirect_to_registration_if_not_logged_in
+        unless user_signed_in?  
+          flash[:alert] = "新規登録またはログインしてください"
+          redirect_to new_user_registration_path  
+        end
     end
 
     def room_params

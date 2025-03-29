@@ -13,7 +13,7 @@
       <p class="preview-info-check-out-field"><span class="preview-info-check-out">チェックアウト日: </span><span class="preview-your-check-out"><%= @reservation.check_out_date.strftime("%Y/%m/%d") %></span></p>
       <p class="preview-info-stay-duration-field"><span class="preview-info-stay-duration">宿泊日数: </span><span class="preview-your-stay-duration"><%= @stay_duration %>日</span></p>
       <p class="preview-info-people-field"><span class="preview-info-people">宿泊人数: </span><span class="preview-your-people"><%= @reservation.number_of_people %>名</span></p>
-      <p class="preview-info-total-price-field"><span class="preview-info-total-price">料金: </span><span class="preview-your-total-price">¥<%= @total_price %></span></p>
+      <p class="preview-info-total-price-field"><span class="preview-info-total-price">料金: </span><span class="preview-your-total-price">¥<%= number_with_delimiter(@total_price) %></span></p>
     </div>
 
     <%= form_with model: @reservation, url: reservations_path, method: :post do |form| %>

@@ -83,7 +83,7 @@
     height: 40px;
     width: 200px;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 40px;
 }
 .room-show-reservation-check-out-heading {
@@ -97,7 +97,7 @@
     height: 40px;
     width: 200px;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 265px;
 }
 .room-show-reservation-people-heading {
@@ -111,7 +111,7 @@
     height: 38px;
     width: 200px;
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 490px;
 }
 .room-show-reservation-sending-field {
@@ -129,24 +129,20 @@
     font-size: 14px;
     cursor: pointer;
 }
-.reservation-error-message1 {
+.reservation-error-message {
     font-size: 10px;
     color: red;
-    position: relative;
-    left: 40px;
-    top: 5px;
+    margin-top: 5px;
 }
-.reservation-error-message2 {
-    font-size: 10px;
-    color: red;
-    position: relative;
-    left: 116px;
-    top: 5px;
+.room-show-reservation-check-in-form {
+    padding-left: 40px;
+    width: 205px;
 }
-.reservation-error-message3 {
-    font-size: 10px;
-    color: red;
-    position: relative;
-    left: 183px;
-    top: 5px;
+.room-show-reservation-check-out-form {
+    padding-left: 20px;
+    width: 205px;
+}
+.room-show-reservation-people-form {
+    padding-left: 20px;
+    width: 205px;
 }
