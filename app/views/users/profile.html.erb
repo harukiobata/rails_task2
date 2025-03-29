@@ -1,0 +1,29 @@
+<header>
+    <%= render 'shared/homepage_header' %>
+</header>
+<main>
+    <h1 class="account-main-header">設定</h1>
+
+    <%= render 'shared/sidebar' %>
+
+    <div class="profile-main-viewing-content">
+
+        <h3 class="profile-main-viewing-heading">プロフィール</h3>
+
+        <p class="profile-main-icon-field"><span class="profile-main-icon">アイコン画像</span> 
+            <%= image_tag(@user.icon.attached? ? @user.icon : 'default_icon.png', class: 'profile-icon') %>
+        </p>
+
+        <p class="profile-main-name-field"><span class="profile-main-name">名前</span><span class="profile-main-user-name"><%= @user.name %></span></p>
+        
+
+        <p class="profile-main-introduction-field"><span class="profile-main-introduction">自己紹介</span><span class="profile-main-user-introduction"><%= @user.introduction %></span></p>
+
+        <span class="profile-to-edit-profile-field">
+            <%= link_to 'プロフィール編集', edit_profile_user_path ,class: "profile-to-edit-profile-link"%>
+        </span>
+    </div>
+</main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>

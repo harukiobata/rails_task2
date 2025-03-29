@@ -1,0 +1,61 @@
+<header>
+    <%= render 'shared/homepage_header' %>
+</header>
+<main>
+    <% if flash[:notice] %> 
+        <div id="success-modal1" class="success-modal1 show"
+            <div class="success-modal1-content">
+                <p class="success-modal-message"><%= flash[:notice] %></p>
+            </div>
+        </div>
+    <% end %>
+    <div class ="homepage-first-content">
+        <div class="firstview">
+            <%=image_tag("homepage-top.jpg",class: "firstview-image") %>
+            <div class="firstview-content">
+                <h1 class="firstview-heading">Potepan Shareで<br>まだ体験したことのない<br>旅をしよう</h1>
+                <%= form_with(url: rooms_path, method: :get, local: true, class: "search-form") do |form| %>
+                    <div class="firstview-search-container">
+                        <%= form.text_field :address, placeholder: "エリア名で検索", class: "firstview-address-writing-field" %>
+                        <%= form.submit "検索", class: "firstview-address-submit-button" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class ="homepage-recomend-areas">
+        <div class ="recomend-areas-heading-field">
+            <h2 class="recomend-areas-heading">おすすめエリア</h2>
+        </div>
+        <div class="recommended-areas">
+            <div class="area-tokyo">
+                <%= link_to rooms_path(address: "東京") do %>
+                    <img src="<%= asset_path('tokyo.jpg') %>", class="tokyo-image">
+                <% end %>
+                <div class="image-name"><p>東京</p></div>
+            </div>
+            <div class="area-oosaka">
+                <%= link_to rooms_path(address: "大阪") do %>
+                    <img src="<%= asset_path('oosaka.jpg') %>" , class="oosaka-image">
+                <% end %>
+                <div class="image-name"><p>大阪</p></div>
+            </div>
+            <div class="area-kyoto">
+                <%= link_to rooms_path(address: "京都") do %>
+                    <img src="<%= asset_path('kyoto.jpg') %>" , class="kyoto-image">
+                <% end %>
+                <div class="image-name"><p>京都</p></div>
+            </div>
+            <div class="area-sapporo">
+                <%= link_to rooms_path(address: "札幌") do %>
+                    <img src="<%= asset_path('sapporo.jpg') %>" , class="sapporo-image">
+                <% end %>
+                <div class="image-name"><p>札幌</p></div>
+            </div>
+        </div>
+    </div>               
+</main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>
+

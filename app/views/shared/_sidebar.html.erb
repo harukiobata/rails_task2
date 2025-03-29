@@ -1,0 +1,10 @@
+<div class="sidebar">
+  <ul class="sidebar-ul">
+    <li class="sidebar-list-account">
+      <%= link_to 'アカウント', account_user_path, class:"sidebar-list-account-link #{'active' if (controller_name == 'users' && action_name == 'account') || (controller_name == 'registrations' && action_name == 'edit')}" %>
+    </li>
+    <li class="sidebar-list-profile">
+      <%= link_to 'プロフィール', profile_user_path, class: "sidebar-list-profile-link #{'active' if (controller_name == 'users' && action_name == 'profile') || (controller_name == 'users' && action_name == 'edit')}" %>
+    </li>
+  </ul>
+</div>

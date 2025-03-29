@@ -1,0 +1,82 @@
+/* モーダルの背景 */
+.reservation-modal-delete {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999; 
+}
+.reservation-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+}
+.reservation-modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+.reservation-modal-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+.reservation-modal-body {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center; 
+}
+.reservation-room-image {
+    height: 200px;
+    object-fit: cover; 
+    margin-bottom: 10px;
+}
+#reservation-room-name {
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+}
+
+#reservation-room-price, #reservation-check-in-date, #reservation-check-out-date, #reservation-number-of-people {
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+}
+.reservation-modal-body-message2 {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+.reservation-btn-delete {
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    left: 85px;
+}
+.reservation-btn-cancel {
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    left: 235px;
+}

@@ -1,0 +1,102 @@
+.room-new-main-content {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 650px;
+    position: relative;
+}
+.room-new-main-writing-field {
+    height: 60px;
+}
+.room-new-name-heading {
+    font-weight: bold;
+}
+.room-new-name-writing {
+    height: 30px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 60px
+}
+.room-new-main-description-field {
+    height: 150px;
+}
+.room-new-description-heading {
+    font-weight: bold;
+}
+.room-new-description-writing {
+    height: 120px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 120px;
+}
+.room-new-main-price-field {
+    height: 60px;
+}
+.room-new-price-heading {
+    font-weight: bold;
+}
+.room-new-price-writing {
+    height: 30px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 267px;
+}
+.room-new-main-address-field {
+    height: 60px;
+}
+.room-new-address-heading {
+    font-weight: bold;
+}
+.room-new-address-writing {
+    height: 30px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 326px;
+}
+.room-new-main-image-field {
+    height: 60px;
+}
+.room-new-image-heading {
+    font-weight: bold;
+}
+.room-new-image-sending {
+    height: 30px;
+    position: absolute;
+    left: 150px;
+    top: 387px;
+}
+.room-new-submit {
+    height: 50px;
+    width: 96%;
+    border-radius: 20px;
+    border: none;
+    background: coral;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.room-new-cancel-field {
+    height: 50px;
+    border: 1px solid;
+    border-radius: 20px;
+    width: 96%;
+    position: relative;
+    top: 20px;
+}
+.room-new-cancel {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    position: relative;
+    left: 270px;
+    top: 13px;
+    cursor: pointer;
+}

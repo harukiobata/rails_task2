@@ -1,0 +1,83 @@
+<header>
+    <%= render "shared/homepage_header" %>
+</header>
+<main>
+
+    <% if flash[:alert] %>
+        <div id="error-message-modal" class="error-message-modal show"
+            <div class="error-message-content">
+                <p class="error-message-content-message"><%= flash[:alert] %></p>
+            </div>
+        </div>
+    <% end %>
+
+    <div class="room-edit-main-content">
+        <h2 class="room-edit-main-heading">施設情報の編集</h2>
+        <%= form_with model: @room,html: { enctype: 'multipart/form-data' } do |f| %>
+            <div class="room-edit-main-writing-field">
+                <%= f.label :name, class: "room-edit-name-heading" do %>
+                    施設名<%= content_tag(:span, "*", class: "required-star") %> 
+                <% end %>
+                <%= f.text_field :name,class: "room-edit-name-writing"%>
+                <% if @room.errors[:name].any? %>
+                <div class="error-message">
+                    <%= @room.errors.full_messages_for(:name).join(', ') %>
+                </div>
+                <% end %>
+            </div>
+
+            <div class="room-edit-main-description-field">
+                <%= f.label :description, class: "room-edit-description-heading" do %>
+                    施設詳細<%= content_tag(:span, "*", class: "required-star") %>
+                <% end %>
+                <%= f.text_area :description, class: "room-edit-description-writing"%>
+                <% if @room.errors[:description].any? %>
+                <div class="error-message">
+                    <%= @room.errors.full_messages_for(:description).join(', ') %>
+                </div>
+                <% end %>
+            </div>
+
+            <div class="room-edit-main-price-field">
+                <%= f.label :price, class: "room-edit-price-heading" do %>
+                    料金<%= content_tag(:span, "*", class: "required-star") %>
+                <% end %>
+                <%= f.text_field :price, pattern: '\d+', class: "room-edit-price-writing"%>
+                <% if @room.errors[:price].any? %>
+                <div class="error-message">
+                    <%= @room.errors.full_messages_for(:price).join(', ') %>
+                </div>
+                <% end %>
+            </div>
+
+            <div class="room-edit-main-address-field">
+                <%= f.label :address, class: "room-edit-address-heading" do %>
+                    住所<%= content_tag(:span, "*", class: "required-star") %>
+                <% end %>
+                <%= f.text_field :address, class: "room-edit-address-writing" %>
+                <% if @room.errors[:address].any? %>
+                <div class="error-message">
+                    <%= @room.errors.full_messages_for(:address).join(', ') %>
+                </div>
+                <% end %>
+            </div>
+
+            <div class="room-edit-main-image-field">
+                <%= f.label :image,"施設画像", class: "room-edit-image-heading"%>
+                <%= f.file_field :image,class: "room-edit-image-sending" %>
+            </div>
+
+            <div class="room-edit-submit-or-cancel-field">
+                <div class="room-edit-submit-field">
+                    <%= f.submit "保存",class: "room-edit-submit" %>
+                </div>
+                <div class="room-edit-cancel-field">
+                    <%= link_to "キャンセル", :back, class: "room-edit-cancel" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>

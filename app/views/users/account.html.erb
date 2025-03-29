@@ -1,0 +1,25 @@
+<header>
+    <%= render 'shared/homepage_header' %>
+</header>
+<main>
+    <h1 class="account-main-header">設定</h1>
+
+    <%= render 'shared/sidebar' %>
+
+    <div class="account-main-viewing-content">
+
+        <h3 class="account-main-viewing-heading">アカウント</h3>
+
+        <p class="account-main-email-field"><span class="account-main-emailadless">メールアドレス</span><span class="account-main-user-emailadless"><%= @user.email %></span></p>
+
+        <p class="account-main-password-field"><span class="account-main-password">パスワード</span><span class="account-main-user-password">********</span></p> <!-- 8桁の「********」で表示 -->
+
+        <span class="account-to-edit-account-field">
+            <%= link_to 'アカウントを編集', edit_user_registration_path ,class: "account-to-edit-account-link"%> 
+            <!-- deviseによるパスワード変更リンク -->
+        </span>
+    </div>
+</main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>

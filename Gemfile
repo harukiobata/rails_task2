@@ -30,6 +30,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'concurrent-ruby', '1.3.4'
 gem 'bigdecimal'
 gem 'mutex_m'
+gem 'devise'
+gem 'rails-i18n'
+gem 'image_processing' , '~> 1.2'
+gem 'mini_magick'
+gem 'font-awesome-sass', '~> 5.15'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,51 @@
+<header>
+  <%= render "shared/homepage_header" %>
+</header>
+
+<main>
+  <div class="room-index-search-content">
+    <div class="room-index-search-section">
+      <%= form_with(url: rooms_path, method: :get, local: true) do %>
+        <div class="room-index-search-field">
+          <div class="search-field-content">
+            <%= text_field_tag :address, params[:address], placeholder: "エリア名で検索", class: "room-index-search" %>
+            <%= text_field_tag :keyword, params[:keyword], placeholder: "キーワードで検索", class: "room-index-search" %>
+            <%= submit_tag "検索", class: "room-index-search-button" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="room-index-main-container">
+    <div class="room-list">
+      <h3 class="room-list-heading"><%= @room_count %> 件が見つかりました。</h3>
+      <% if @rooms.any? %>
+        <div class="room-index-grid-content">
+          <% @rooms.each do |room| %>
+            <div class="room-index-content">
+              <div class="room-index-image-field">
+                <%= image_tag(room.image.attached? ? room.image : "default_image.png", class: "room-index-image") %>
+              </div>
+              <div class="room-index-text-content">
+                <h4 class="room-index-name"><%= room.name %></h4>
+                <p class="room-index-address"><%= room.address %></p>
+                <span class="room-index-star"><%= raw ("<i class='fa fa-star'></i>" * 5) %></span>
+                <p class="room-index-description"><%= room.description %></p>
+                <p class="room-index-price">¥<%= number_with_delimiter(room.price) %></p>
+                <div class="room-show-link-field">
+                  <%= link_to "詳細はこちら", room_path(room) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p class="room-index-none-content-text">該当する施設がありません。</p>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <%= render "shared/homepage_footer" %>
+</footer>

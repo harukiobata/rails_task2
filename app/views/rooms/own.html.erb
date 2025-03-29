@@ -1,0 +1,68 @@
+<header>
+    <%= render "shared/homepage_header" %>
+</header>
+<main>
+    <% if flash[:notice] %>
+        <div id="success-modal1" class="success-modal1 show"
+            <div class="success-modal1-content">
+                <p class="success-modal-message"><%= flash[:notice] %></p>
+            </div>
+        </div>
+    <% end %>
+
+    <div class="room-own-main-content">
+        <div class="room-own-main-content-heading-field">
+            <h3>登録済み一覧</h3>
+        </div>
+        <div class="room-own-content-table-lap">
+            <table class ="room-own-content-table">
+                <thead>
+                    <tr> 
+                        <th>画像</th>
+                        <th>施設名</th>
+                        <th>紹介文</th>
+                        <th>料金</th>
+                        <th>作成日</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @rooms.each do |room| %>
+                        <tr>
+                            <td><%= image_tag(room.image.attached? ? room.image : "default_image.png", class: "room-own-image") %></td>
+                            <td><%= link_to room.name, room_path(room.id) , class: "room-own-tbody-name" %></td> 
+                            <td><%= tag.span room.description  ,class: "room-own-tbody-description" %></td>
+                            <td>¥<%= tag.span number_with_delimiter(room.price) ,class: "room-own-tbody-price" %>~</td>
+                            <td><%= tag.span room.created_at.strftime("%Y/%m/%d") ,class: "room-own-tbody-create-day" %></td>
+                            <td><%= link_to "編集", edit_room_path(room), class: "own-to-show-link" %></td>
+                            <td><%= link_to "削除", '#', class: "open-modal-delete", data: { room_id: room.id, room_name: room.name, room_price: room.price,room_image: room.image.attached? ? url_for(room.image) :  asset_path('default_image.png')  } %></td>
+                        </tr>
+                    <% end %>
+                </tbody>   
+            </table>
+        </div>
+    </div>
+    <div class="modal-delete" tabindex="-1" id="modalDelete" style="display: none;">
+    <div class="modal-content2">
+        <div class="modal-header">
+            <h4 class="modal-title">以下の施設を削除しますか？</h4>
+        </div>
+        <div class="modal-body">
+            <p class="modal-body-message">
+                <img id="room-image" class="room-image">
+                <span id="room-name"></span><span id="room-price"></span>
+            </p>
+            <p class="modal-body-message2">よろしければ削除ボタンをクリックしてください</p>
+        <div>
+        <div class="modal-footer">
+            <button type="button" id="confirmDelete" class="btn btn-danger" >削除</button>
+            <button type="button" id="cancelDeleteButton" class="btn btn-secondary" >キャンセル</button>
+        </div>
+    </div>
+</div>
+</main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>

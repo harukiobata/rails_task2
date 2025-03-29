@@ -1,0 +1,98 @@
+.modal-delete {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+}
+
+.modal-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modal-body-message {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.room-image {
+    height: 200px;
+    display: flex;
+    position: relative;
+    left: 25px;
+    object-fit: cover; 
+}
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+}
+
+#room-name {
+    position: relative;
+    top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#room-price {
+    position: relative;
+    top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-body-message2 {
+    margin-bottom: 0;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-danger {
+    width: 100px;
+    height: 40px;
+    border: none;
+    background: coral;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    position: absolute;
+    left: 85px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    height: 40px;
+    width: 100px;
+    background: white;
+    border: 1px solid;
+    border-radius: 10px;
+    position: relative;
+    left: 235px;
+    font-size: 15px;
+    cursor: pointer;
+}

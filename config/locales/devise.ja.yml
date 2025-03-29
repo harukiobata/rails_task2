@@ -1,0 +1,39 @@
+ja:
+  devise:
+    errors:
+      messages:
+        already_confirmed: "すでに確認済みです"
+        absent: "は入力されていません"
+        not_found: "が見つかりません"
+        not_confirmed: "確認されていません"
+        not_locked: "はロックされていません"
+        password_incorrect: "パスワードが間違っています"
+        password_too_short: "パスワードは %{count} 文字以上にしてください"
+        password_too_short_with_hint: "パスワードは %{count} 文字以上にしてください。"
+        too_long: "は長すぎます"
+        too_short: "は短すぎます"
+        taken: "はすでに使用されています"
+        blank: "は入力されていません"
+        confirmation: "確認用パスワードが一致しません"
+
+    registration:
+      create:
+        success: "アカウントが作成されました。ログインしてください。"
+        failure: "アカウント作成に失敗しました。もう一度試してください。"
+
+    sessions:
+      signed_in: "ログインしました。"
+      user:
+        signed_in: "ログインしました。"
+        signed_out: "ログアウトしました。"
+        
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        name: "お名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        current_password: "現在のパスワード"

@@ -1,0 +1,57 @@
+<header>
+   <%= render 'shared/homepage_header' %>
+</header>
+<main>
+
+<% if flash[:alert] %>
+    <div id="error-message-modal" class="error-message-modal show"
+        <div class="error-message-content">
+            <p class="error-message-content-message"><%= flash[:alert] %></p>
+        </div>
+    </div>
+<% end %>
+
+<h1 class="account-main-header">設定</h1>
+
+<%= render 'shared/sidebar' %>
+
+<div class="profile-edit-main-content"> 
+    <h3 class="profile-edit-main-heading">プロフィール編集</h3>
+    <%= form_with model: @user, url: update_profile_user_path, html: { enctype: 'multipart/form-data' } do |f| %>
+        <div class="profile-edit-icon-field">
+            <%= f.label :icon, 'アイコン画像',class: "profile-edit-icon-heading" %>
+            <%= image_tag(@user.icon.attached? ? @user.icon : "default_icon.png", class: "profile-icon") %>
+            <%= f.file_field :icon,class: "profile-edit-icon-sending" %>
+        </div>
+
+        <div class="profile-edit-name-field">
+            <%= f.label :name, class: "profile-edit-name-heading" do%>
+                お名前<%= content_tag(:span, "*", class: "required-star") %> 
+            <% end %>
+            <%= f.text_field :name,class: "profile-edit-name-writing"%>
+            <% if @user.errors[:name].any? %>
+                <div class="error-message2">
+                    <%= @user.errors.full_messages_for(:name).join(', ') %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="profile-edit-introduction-field">
+            <%= f.label :introduction, '自己紹介',class: "profile-edit-introduction-heading" %>
+            <%= f.text_area :introduction , class: "profile-edit-introduction-writing"%>
+        </div>
+
+        <div class="profile-edit-submit-and-cancel-field">
+            <div class="profile-edit-cancel-field">
+                <%= link_to 'キャンセル', profile_user_path,class: "profile-edit-cancel-link" %>
+            </div>
+            <div class="profile-edit-submit-field">
+                <%= f.submit '更新する',class: "profile-edit-submit" %>
+            </div>
+        </div>
+    <% end %>
+</div>
+</main>
+<footer>
+    <%= render "shared/homepage_footer" %>
+</footer>

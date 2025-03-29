@@ -1,0 +1,216 @@
+//acountページのscss
+body {
+    margin: 0px;
+}
+.account-main-header {
+    position: relative;
+    left: 40px;
+}
+.account-main-viewing-content {
+    position: relative;
+    left: 300px;
+    top: 10px;
+    max-width: 60%;
+    height: 300px;
+}
+.account-main-viewing-heading {
+    font-size: 25px;
+    border-bottom: solid;
+}
+.account-main-email-field {
+    height: 40px;
+    font-size: 18px;
+}
+.account-main-emailadless {
+    font-weight: bold;
+}
+.account-main-user-emailadless {
+    position: relative;
+    left: 80px;
+}
+.account-main-password-field {
+    height: 40px;
+    font-size: 18px;
+}
+.account-main-password {
+    font-weight: bold;
+}
+.account-main-user-password {
+    position: relative;
+    left: 115px;
+}
+.account-to-edit-account-field {
+    height: 40px;
+    display: inline-block;
+    width: 150px;
+    border: blue 2px solid;
+    border-radius: 20px;
+    position: absolute;
+    right: 0px;
+}
+.account-to-edit-account-link {
+    text-decoration: none;
+    color: blue;
+    position: relative;
+    left: 10px;
+    top: 8px;
+    display: inline-block;
+}
+//profileページのscss
+.profile-main-viewing-content {
+    position: relative;
+    left: 300px;
+    top: 10px;
+    max-width: 60%;
+    height: 450px;
+}
+.profile-main-viewing-heading {
+    font-size: 25px;
+    border-bottom: solid;
+}
+.profile-main-icon-field {
+    font-size: 18px;
+}
+.profile-main-icon {
+    font-weight: bold;
+    position: relative;
+    top: -30px;
+}
+.profile-icon {
+    position: relative;
+    left: 100px;
+    width: 80px;
+    height: 80px;
+}
+.profile-main-name-field {
+    height: 40px;
+    font-size: 18px;
+}
+.profile-main-name {
+    font-weight: bold;
+}
+.profile-main-user-name {
+    position: relative;
+    left: 170px;
+}
+.profile-main-introduction-field {
+    height: 40px;
+    font-size: 18px;
+}
+.profile-main-introduction {
+    font-weight: bold;
+}
+.profile-main-user-introduction {
+    position: relative;
+    left: 135px;
+}
+.profile-to-edit-profile-field {
+    height: 40px;
+    display: inline-block;
+    width: 150px;
+    border: blue 2px solid;
+    border-radius: 20px;
+    position: absolute;
+    right: 0px;
+}
+.profile-to-edit-profile-link {
+    text-decoration: none;
+    color: blue;
+    position: relative;
+    display: inline-block;
+    left: 10px;
+    top: 8px;
+}
+//profile/edit
+.profile-edit-main-content {
+    position: relative;
+    left: 300px;
+    top: 10px;
+    max-width: 70%;
+    height: 500px;
+}
+.profile-edit-main-heading {
+    font-size: 25px;
+    border-bottom: solid;
+}
+.profile-edit-icon-heading {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: -35px;
+}
+.profile-edit-icon-sending {
+    position: relative;
+    left: 120px;
+    top: -35px;
+    font-weight: bold;
+}
+.profile-edit-name-field {
+    height: 70px;
+}
+.profile-edit-name-heading {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: 12px;
+}
+.profile-edit-name-writing {
+    position: absolute;
+    left: 210px;
+    height: 30px;
+    width: 60%;
+    font-size: 18px;
+    top: 160px;
+}
+.profile-edit-introduction-field {
+    height: 160px;
+}
+.profile-edit-introduction-heading {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    top: -40px;
+}
+.profile-edit-introduction-writing {
+    height: 120px;
+    width: 60%;
+    position: relative;
+    left: 134px;
+    font-size: 18px;
+    top: 15px;
+}
+.profile-edit-submit-and-cancel-field {
+    height: 70px;
+    width: 60%;
+}
+.profile-edit-cancel-field {
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    border: solid;
+    border-radius: 20px;
+    right: 220px;
+    top: 400px;
+}
+.profile-edit-cancel-link {
+    text-decoration: none;
+    font-size: 17px;
+    color: black;
+    position: relative;
+    top: 7px;
+    left: 7px;
+}
+.profile-edit-submit-field {
+    height: 70px;
+}
+.profile-edit-submit {
+    position: absolute;
+    height: 42px;
+    width: 105px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background: coral;
+    top: 400px;
+    right: 90px;
+}

@@ -1,0 +1,102 @@
+.room-edit-main-content {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 650px;
+    position: relative;
+}
+.room-edit-main-writing-field {
+    height: 60px;
+}
+.room-edit-name-heading {
+    font-weight: bold;
+}
+.room-edit-name-writing {
+    height: 30px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 60px
+}
+.room-edit-main-description-field {
+    height: 150px;
+}
+.room-edit-description-heading {
+    font-weight: bold;
+}
+.room-edit-description-writing {
+    height: 120px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 120px;
+}
+.room-edit-main-price-field {
+    height: 60px;
+}
+.room-edit-price-heading {
+    font-weight: bold;
+}
+.room-edit-price-writing {
+    height: 30px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 267px;
+}
+.room-edit-main-address-field {
+    height: 60px;
+}
+.room-edit-address-heading {
+    font-weight: bold;
+}
+.room-edit-address-writing {
+    height: 30px;
+    width: 460px;
+    position: absolute;
+    left: 150px;
+    font-size: 16px;
+    top: 326px;
+}
+.room-edit-main-image-field {
+    height: 60px;
+}
+.room-edit-image-heading {
+    font-weight: bold;
+}
+.room-edit-image-sending {
+    height: 30px;
+    position: absolute;
+    left: 150px;
+    top: 387px;
+}
+.room-edit-submit {
+    height: 50px;
+    width: 96%;
+    border-radius: 20px;
+    border: none;
+    background: coral;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.room-edit-cancel-field {
+    height: 50px;
+    border: 1px solid;
+    border-radius: 20px;
+    width: 96%;
+    position: relative;
+    top: 20px;
+}
+.room-edit-cancel {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    position: relative;
+    left: 270px;
+    top: 13px;
+    cursor: pointer;
+}

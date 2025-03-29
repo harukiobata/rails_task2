@@ -1,0 +1,35 @@
+.error-message-modal {
+    display: none ;
+    position: fixed;
+    z-index: 9999;
+    top: 10%;
+    left: 42px;
+    max-width: 400px;
+    max-height: 50px;
+    background-color: red;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+.error-message-content {
+    background-color: red;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    max-width: 400px; 
+    max-height: 50px;
+    text-align: center;
+}
+.error-message-content-message {
+    font-size: 14px; 
+    color:white; 
+}
+.error-message-modal.show {
+    display: block ; /* show クラスが付与された場合に表示 */
+}

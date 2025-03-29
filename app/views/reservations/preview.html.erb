@@ -1,0 +1,36 @@
+<header>
+  <%= render 'shared/homepage_header' %>
+</header>
+<!--previewは確認画面(create用の) -->
+<main>
+  <div class="preview-main-content">
+    <h2 class="preview-main-heading">予約内容確認</h2>
+
+    <!-- 予約情報の確認 -->
+    <div class="preview-info-content">
+      <p class="preview-info-room-name-field"><span class="preview-info-room-name">部屋名: </span><span class="preview-your-room-name"><%= @room.name %></span></p>
+      <p class="preview-info-check-in-field"><span class="preview-info-check-in">チェックイン日: </span><span class="preview-your-check-in"><%= @reservation.check_in_date.strftime("%Y/%m/%d") %></span></p>
+      <p class="preview-info-check-out-field"><span class="preview-info-check-out">チェックアウト日: </span><span class="preview-your-check-out"><%= @reservation.check_out_date.strftime("%Y/%m/%d") %></span></p>
+      <p class="preview-info-stay-duration-field"><span class="preview-info-stay-duration">宿泊日数: </span><span class="preview-your-stay-duration"><%= @stay_duration %>日</span></p>
+      <p class="preview-info-people-field"><span class="preview-info-people">宿泊人数: </span><span class="preview-your-people"><%= @reservation.number_of_people %>名</span></p>
+      <p class="preview-info-total-price-field"><span class="preview-info-total-price">料金: </span><span class="preview-your-total-price">¥<%= number_with_delimiter(@total_price) %></span></p>
+    </div>
+
+    <%= form_with model: @reservation, url: reservations_path, method: :post do |form| %>
+        <%= form.hidden_field :room_id, value: @reservation.room_id %>
+        <%= form.hidden_field :check_in_date, value: @reservation.check_in_date %>
+        <%= form.hidden_field :check_out_date, value: @reservation.check_out_date %>
+        <%= form.hidden_field :number_of_people, value: @reservation.number_of_people %>
+        <div class="preview-submit-or-cancel">
+          <%= form.submit "予約を確定", class: 'preview-submit-button' %>
+          <div class="preview-cancel-field">
+            <%= link_to "キャンセル", room_path(@room), class: 'preview-cancel-link' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</main>
+
+<footer>
+  <%= render 'shared/homepage_footer' %>
+</footer>

@@ -1,0 +1,75 @@
+.fa-star {
+    color: orange;
+    margin-right: 5px;
+}
+.room-own-main-content {
+    width: 100%;
+    min-height: 400px;
+}
+.room-own-main-content-heading-field {
+    font-size: 25px;
+    position: relative;
+    left: 30px;
+    margin-bottom: 10px;
+}
+.room-own-image {
+    width: 100px;
+}
+.room-own-tbody-name {
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+.open-modal-delete {
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+}
+.own-to-show-link {
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+    font-size: 14px;
+}
+//successmodal1について
+//やってて気づいたこと多分content機能してない
+.success-modal1 {
+    display: none ;
+    position: fixed;
+    z-index: 9999;
+    top: 10%;
+    left: 42px;
+    max-width: 400px;
+    max-height: 50px;
+    background-color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+.success-modal1-content {
+    background-color: black;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    max-width: 400px; 
+    max-height: 50px;
+    text-align: center;
+}
+.success-modal-message {
+    font-size: 14px; 
+    color:white; 
+}
+.success-modal1.show {
+    display: block ; 
+}
+//tableのラップ
+.room-own-main-content {
+    overflow-x: auto;  
+}
